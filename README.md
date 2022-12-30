@@ -17,4 +17,14 @@ delete branch from remote repository
 git branch -d -r origin/main
 git push -d origin main
 ```
+configure credential helper store
+```sh
+git config --global credential.helper 'store --file ~/.github-credentials'
+git credential-store --file ~/.github-credentials store
+protocol=https
+host=github.com
+username=GIT_USER
+password=PRIVATE_ACCESS_TOKEN
+
+```
 
