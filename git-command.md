@@ -19,9 +19,8 @@ git push -d origin main
 ```
 create a new remote branch and push the changes to the new remote branch
 ```
-git branch new-feature-branch
-git branch -u origin/new-feature-branch
-git push origin new-feature-branch
+git branch new-feature-branch & git switch new-feature-branch | git checkout -b new-feature-branch
+git branch -u origin/new-feature-branch & git push origin new-feature-branch | git push -u origin new-feature-branch
 ```
 configure credential helper store
 ```sh
