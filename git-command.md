@@ -17,6 +17,11 @@ delete branch from remote repository
 git branch -d -r origin/main
 git push -d origin main
 ```
+create a new remote branch and push the changes to the new remote branch
+```
+git branch new-feature-branch
+git push origin new-feature-branch
+```
 configure credential helper store
 ```sh
 git config --global credential.helper 'store --file ~/.github-credentials'
