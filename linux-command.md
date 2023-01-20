@@ -8,3 +8,9 @@ sed tutorial
 https://www.geeksforgeeks.org/sed-command-in-linux-unix-with-examples/
 
 https://www.gnu.org/software/sed/manual/sed.html
+
+awk tutorial
+
+https://www.baeldung.com/linux/awk-nawk-gawk-mawk-difference
+
+https://www.gnu.org/software/gawk/
