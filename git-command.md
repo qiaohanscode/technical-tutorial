@@ -38,4 +38,8 @@ username=GIT_USER
 password=PRIVATE_ACCESS_TOKEN
 
 ```
-
+change user.name and user.email
+```
+git config --global user.name=qiaohanscode
+git config --global user.email=timhanq@hotmail.com
+```
