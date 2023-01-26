@@ -10,11 +10,37 @@ print all configured spring profiles to the console. The command sed uses multip
 ls src/main/resources/application-*.properties | sed -e 's/\.properties//g' -e 's/.*application-//g'
 ```
 
+The special character & refers to the portion of the pattern space which matched.
+
 ```
+cat phone.txt
+
 5555551212
 5555551213
 5555551214
 6665551215
 6665551216
 7775551217
+
+sed -e 's/^[[:digit:]][[:digit:]][[:digit:]]/(&)/g' phone.txt
+
+(555)5551212
+(555)5551213
+(555)5551214
+(666)5551215
+(666)5551216
+(777)5551217
+
+```
+
+The special escapes \\1 through \\9 refers to the specific region in the regular expressions. To define a region, you insert backslashed parentheses "\\(" and "\\)" around each region of interest.
+```
+ cat phone.txt | sed 's/\(.*)\)\(.*-\)\(.*$\)/Area ode: \1 Second: \2 Third: \3/' 
+ 
+Area code: (555) Second: 555- Third: 1212 
+Area code: (555) Second: 555- Third: 1213 
+Area code: (555) Second: 555- Third: 1214 
+Area code: (666) Second: 555- Third: 1215 
+Area code: (666) Second: 555- Third: 1216 
+Area code: (777) Second: 555- Third: 1217
 ```
