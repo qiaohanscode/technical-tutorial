@@ -22,7 +22,7 @@ cat phone.txt
 6665551216
 7775551217
 
-sed -e 's/^[[:digit:]][[:digit:]][[:digit:]]/(&)/g' phone.txt
+sed -i -e 's/^[[:digit:]][[:digit:]][[:digit:]]/(&)/g' phone.txt
 
 (555)5551212
 (555)5551213
