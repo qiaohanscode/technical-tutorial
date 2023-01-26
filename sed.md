@@ -9,3 +9,12 @@ print all configured spring profiles to the console. The command sed uses multip
 ```
 ls src/main/resources/application-*.properties | sed -e 's/\.properties//g' -e 's/.*application-//g'
 ```
+
+```
+5555551212
+5555551213
+5555551214
+6665551215
+6665551216
+7775551217
+```
