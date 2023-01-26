@@ -43,7 +43,7 @@ cat phone.txt
 6665551216
 7775551217
 
-sed -e 's/^[[:digit:]]\{3\}/(&)/g' \\
+sed -e 's/^[[:digit:]]\{3\}/(&)/g' \
     -e 's/)[[:digit:]]\{3\}/&-/g' phone.txt 
 (555)555-1212 
 (555)555-1213 
@@ -55,7 +55,9 @@ sed -e 's/^[[:digit:]]\{3\}/(&)/g' \\
 
 The special escapes \\1 through \\9 refers to the specific region in the regular expressions. To define a region, you insert backslashed parentheses "\\(" and "\\)" around each region of interest.
 ```
- cat phone.txt | sed 's/\(.*)\)\(.*-\)\(.*$\)/Area ode: \1 Second: \2 Third: \3/' 
+ cat phone.txt | sed -e 's/^[[:digit:]]\{3\}/(&)/g' \
+                     -e 's/)[[:digit:]]\{3\}/&-/g'  \
+                     -e 's/\(.*)\)\(.*-\)\(.*$\)/Area ode: \1 Second: \2 Third: \3/' 
  
 Area code: (555) Second: 555- Third: 1212 
 Area code: (555) Second: 555- Third: 1213 
