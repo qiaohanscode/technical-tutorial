@@ -14,3 +14,8 @@ awk tutorial
 https://www.baeldung.com/linux/awk-nawk-gawk-mawk-difference
 
 https://www.gnu.org/software/gawk/
+
+execute commands in arbitary intervals
+```
+watch -n 1 "kubectl get pods | grep dev"
+```
