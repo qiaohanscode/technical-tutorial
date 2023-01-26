@@ -19,3 +19,7 @@ execute commands in arbitary intervals
 ```
 watch -n 1 "kubectl get pods | grep dev"
 ```
+find all files in directory and print the number of founded files
+```
+find /etc -type f -name '*.sh' | wc -l
+```
