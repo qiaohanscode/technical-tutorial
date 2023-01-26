@@ -32,6 +32,26 @@ sed -i -e 's/^[[:digit:]][[:digit:]][[:digit:]]/(&)/g' phone.txt
 (777)5551217
 
 ```
+you can use multiple sed commands in a single sed command
+```
+cat phone.txt
+
+5555551212
+5555551213
+5555551214
+6665551215
+6665551216
+7775551217
+
+sed -e 's/^[[:digit:]]\{3\}/(&)/g' \\
+    -e 's/)[[:digit:]]\{3\}/&-/g' phone.txt 
+(555)555-1212 
+(555)555-1213 
+(555)555-1214 
+(666)555-1215 
+(666)555-1216 
+(777)555-1217
+```
 
 The special escapes \\1 through \\9 refers to the specific region in the regular expressions. To define a region, you insert backslashed parentheses "\\(" and "\\)" around each region of interest.
 ```
