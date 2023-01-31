@@ -23,3 +23,7 @@ find all files in directory and print the number of founded files
 ```
 find /etc -type f -name '*.sh' | wc -l
 ```
+find specific text in files from specific folder
+```
+find fcp/ -type f -exec grep -l "TARGET" {} \;
+```
