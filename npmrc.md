@@ -9,3 +9,4 @@ registry=https://jfrog.io/artifactory/api/npm/npm-all/
 #//nexus-gcj.apps.ec1.aws.io/repository/npm-public/:email=timhanq@hotmail.com
 #//nexus-gcj.apps.ec1.aws.io/repository/npm-public/:_auth=$TOKEN
 ```
+For details see https://docs.npmjs.com/cli/v9/configuring-npm/npmrc
