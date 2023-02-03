@@ -7,3 +7,8 @@ create a new projekt
 ```
 ng new my-new-project
 ```
+
+start angular application with proxy configuration
+```
+ng server --host 0.0.0.0 --proxy-configuration proxy.conf.json
+```
