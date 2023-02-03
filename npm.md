@@ -1,0 +1,5 @@
+install dependence
+```
+npm install
+```
+
