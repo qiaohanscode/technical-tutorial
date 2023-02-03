@@ -23,7 +23,7 @@ list currently used configuration
 npm config list
 ```
 
-list configuration with default
+list currently used configuration with default -- all the currently used configuration
 ```
 npm config list -l
 ```
