@@ -12,3 +12,7 @@ start angular application with proxy configuration
 ```
 ng serve --host 0.0.0.0 --proxy-config proxy.conf.json
 ```
+compile angular project with configuration defined in the file angular.json
+```
+ng build --configuration production
+```
