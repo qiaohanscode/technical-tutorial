@@ -10,5 +10,5 @@ ng new my-new-project
 
 start angular application with proxy configuration
 ```
-ng server --host 0.0.0.0 --proxy-config proxy.conf.json
+ng serve --host 0.0.0.0 --proxy-config proxy.conf.json
 ```
