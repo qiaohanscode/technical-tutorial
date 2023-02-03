@@ -18,3 +18,13 @@ list currently installed package in global path
 npm list -g
 ```
 
+list currently used configuration
+```
+npm config list
+```
+
+list configuration with default
+```
+npm config list -l
+```
+
