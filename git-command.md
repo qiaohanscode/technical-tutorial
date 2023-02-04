@@ -32,6 +32,10 @@ git tag --list
 git tag 0.0.4
 git push --tag origin 0.0.4
 ```
+compare current working to last commit
+```
+git diff
+```
 configure credential helper store
 ```sh
 git config --global credential.helper 'store --file ~/.github-credentials'
