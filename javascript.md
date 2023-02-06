@@ -11,3 +11,6 @@ The Method assign() of location will load a new document
 location.assign("https://www.w3schools.com");
 ```
 The method replace() of location will load a new document and remove the current URL from the document history. With replace() it is not possible to use "back" to navigate back to the original document.
+```
+location.replace("https://www.w3schools.com");
+```
