@@ -32,6 +32,10 @@ git tag --list
 git tag 0.0.4
 git push --tag origin 0.0.4
 ```
+delete a remote tag
+```
+git push --delete origin 0.0.4
+```
 compare current working to last commit
 ```
 git diff
