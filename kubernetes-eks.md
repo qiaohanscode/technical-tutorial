@@ -8,3 +8,7 @@ delete a pod forcely
 ```
 kubectl delete pod foo --force
 ```
+export secret to yaml file
+```
+kubectl get secret -o yaml my-secret-name > my-secret.yaml
+```
