@@ -12,3 +12,7 @@ export secret to yaml file
 ```
 kubectl get secret -o yaml my-secret-name > my-secret.yaml
 ```
+apply a configuration to the namespace
+```
+kubectl apply -f secret.yaml
+```
