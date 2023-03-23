@@ -40,6 +40,10 @@ compare current working to last commit
 ```
 git diff
 ```
+compare stash 1 with branch HEAD
+```
+git diff stash@{1} HEAD
+```
 configure credential helper store
 ```sh
 git config --global credential.helper 'store --file ~/.github-credentials'
