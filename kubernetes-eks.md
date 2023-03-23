@@ -1,4 +1,4 @@
-open an interactive terminal im pod
+open an interactive terminal im pod, the option -i means "Pass stdin to the container", the option -t means "Stdin is a TTY"
 
 ```
 kubectl exec amas-backend-prod-deployment-5757449dff-7852t -i -t -- bash -il
