@@ -44,6 +44,14 @@ compare stash 1 with branch HEAD
 ```
 git diff stash@{1} HEAD
 ```
+create a stash 
+```
+git stash push -m "message for stash"
+```
+show the change of  stash 1
+```
+git stash show -p 1
+```
 configure credential helper store
 ```sh
 git config --global credential.helper 'store --file ~/.github-credentials'
