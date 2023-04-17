@@ -10,14 +10,14 @@ several maven projects have similar configurtions. Making a parent project and l
 <project>
   <modelVersion>4.0.0</modelVersion>
  
-  <groupId>org.ekl.backend</groupId>
-  <artifactId>ekl-backend-parent</artifactId>
-  <version>1.0.1</version>
-  <packaging>pom</packaging>
+  <parent>
+    <groupId>org.ekl.backend</groupId>
+    <artifactId>ekl-backend-ws</artifactId>
+    <version>1.0.1</version>
+    <relativePath>../ekl-backend-parent/pom.xml</relativePath>
+  </parent>
  
-  <modules>
-    <module>../ekl-backend-ws</module>
-  </modules>
+  <artifactId>ekl-backend-ws</artifactId>
 </project>
 ````
 
@@ -33,14 +33,14 @@ a group of projects that are built or processed together
 <project>
   <modelVersion>4.0.0</modelVersion>
  
-  <parent>
-    <groupId>org.ekl.backend</groupId>
-    <artifactId>ekl-backend-ws</artifactId>
-    <version>1.0.1</version>
-    <relativePath>../ekl-backend-parent/pom.xml</relativePath>
-  </parent>
+  <groupId>org.ekl.backend</groupId>
+  <artifactId>ekl-backend-parent</artifactId>
+  <version>1.0.1</version>
+  <packaging>pom</packaging>
  
-  <artifactId>ekl-backend-ws</artifactId>
+  <modules>
+    <module>../ekl-backend-ws</module>
+  </modules>
 </project>
 ````
-One maven project can use project inheritance and project aggregation
+One maven project can use both project inheritance and project aggregation
