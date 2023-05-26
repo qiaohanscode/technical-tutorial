@@ -72,3 +72,6 @@ public class MyMeterBinderConfiguration {
     }
 }
 ````
+
+### Test
+- @MockBean -- See Spring Boot Java Doc

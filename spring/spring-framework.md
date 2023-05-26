@@ -75,18 +75,23 @@ a setter methode annotated with @Autowired
 #### 3) field based DI
 a field (attribute) annotated with @Autowired
 
+### Transaction Management
+- @Transactional: with Spring's standard configuration, should only be applied to methods with public visibility.
+### Bean Validation
+https://reflectoring.io/bean-validation-with-spring-boot/
+
 ### Aspect Oriented Programming
 a proxy-based AOP Framework, supports currently only method execution join points on spring beans. Field interception (typically domain object) is not implemented (AspectJ is the best choice).
 
 - Aspect: a modularization of a concern that cuts across multiple classes, e.g. transaction managenebt. Implemented with @Aspect (@AspectJ style) or schema-based
-- Join point: represents a method execution
-- Advice: action taken by a particular join point.
+- JoinPoint: is a point during the execution of a program, eg. execution of a method or handeling of a exception. In Spring AOP a join point always represents  a method execution.
+- Advice: action taken by a particular Joinpoint, is in Spring modelled as an interceptor.
   - Before
   - After returing
   - After throwing
   - After (finally)
   - Around
-- Point cut: a predicate matches join points
+- Point cut: a predicate that helps to matche an Advice to be applied by an Aspect at a particular JoinPoint. A Pointcut expression is often associated with Advice.
 - Introduction:
 - Target object: an object being adviced by one or more aspects
 - AOP proxy:
