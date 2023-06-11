@@ -72,27 +72,3 @@ public interface UnaryOperator<T> extends Function<T,T>
 ````
 public int compareTo( T o)
 ````
-- Comparator\<T> -- represents a comparison function.
-````
-int compare(T o1, T o2)
-````
-````
-static <T,U extends Comparable<? super U>> Comparator<T> comparing(Function<? super T,? extends U> keyExtractor)
-
-Comparator<Employee> employeeNameComparator = Comparator.comparing(Employee::getName);
-Arrays.sort(employees, employeeNameComparator);
-````
-````
-static <T,U> Comparator<T> comparing(Function<? super T,? extends U> keyExtractor,Comparator<? super U> keyComparator)
-
-Comparator<Employee> employeeNameComparator = Comparator.comparing(Employee::getName 
-    ,(s1,s2) -> { return s1.compareTo(s2);});
-Arrays.sort(employees,employeeNameComparator);                            
-````
-````
-default Comparator<T> reversed()
-
-Comparator<Employee> employNameComparator = Comparator.comparing(Employee::getName);
-Comparator<Employee> employNameComparatorReversed = employNameComparator.reversed();
-Arrays.sort(employees,employNameComparatorReversed);
-````

@@ -51,6 +51,10 @@ public void incrementCounter() {
     }
 }
 ````
+- volatile -- garantees, any write to a volatile field happens before every subsequent read of the same field.
+````
+private volatile int value;
+````
 - Reentrant Locks: the package java.util.concurrent.locks provides Lock implementations which prevent queued threads from suffering deadlock or livelock
 ````
 ReentrantLock
