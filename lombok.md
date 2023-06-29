@@ -1,0 +1,1 @@
+- @Value -- the immutable variant of @Data
