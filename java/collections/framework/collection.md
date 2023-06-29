@@ -66,4 +66,10 @@ Iterator<T> iterator()
 
 default void forEach(Consumer<? super T> action)
 ```
+#### Converting to array
+````
+Object[] toArray();
+
+
+````
 

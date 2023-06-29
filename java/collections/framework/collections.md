@@ -58,3 +58,31 @@ public static <T extends Comparable <? super T>> void sort(List<T>)
 
 public static <T> void sort(List<T>, Comparator<? super T>)
 ````
+#### Static factory method for converting array to Collection
+````
+public static <T> boolean addAll(Collection<? super T> c, T... elements)
+````
+````
+/* adds all of the specified elements to the Collection
+   Note: if the varargs is an array, the element type should not be primitive type
+   , otherwise the array will be added to the collection as a single element*/
+
+
+Integer arrayInteger[] = new Integer[]{1,2,3};
+var listInteger = new ArrayList<Integer>();
+Collections.addAll(listInteger, arrayInteger);
+System.out.println(listInteger);
+
+/* the output is [1,2,3] */
+````
+
+
+
+
+
+
+
+
+
+
+
