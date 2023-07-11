@@ -27,4 +27,7 @@ list currently used configuration with default -- all the currently used configu
 ```
 npm config list -l
 ```
-
+update npm to 9.8.0
+```
+npm install -g npm@9.8.0
+```
