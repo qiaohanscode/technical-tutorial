@@ -28,3 +28,12 @@ dur.toHours(); // returns 8808
 dur.toMinutes(); // returns 528481
 dur.toSeconds(); // returns 31708860
 ```
+A Duration can also be created by parsing a char sequence in the format "PnDTnHnMn.nS".
+```
+Duration dur = Duration.parse("PT1M11.22S");
+dur.getSeconds(); // return 71
+dur.toSeconds(); // return 71 
+dur.toMillis(); // return 71220
+dur.getNano(); // return 220000000
+dur.toNanos(); // return 71220000000
+```
