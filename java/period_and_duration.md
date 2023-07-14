@@ -17,3 +17,5 @@ var start = LocalDateTime.of(2023,1,1,0,0,0,0).toLocalDate();
 var end = LocalDateTime.of(2024,3,4,1,1,1,1).toLocalDate();
 var betw = Period.between(start,end).getDays(); //return 3;
 ```
+#### Duration
+The class Duration is suited for handling shorter amounts of time and represents an interval of time in seconds or nanoseconds.
