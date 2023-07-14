@@ -5,7 +5,7 @@ Period and Duration can be used to represent an amount of time or determine the 
 #### Period
 The class Period uses the units year , month and day to represent a period of time. The date units can be determined by using the methods getYears(), getMonths() and getDays().
 
-Notice, getDays() returns only the values of the unit day, the values of the units year and month will not be concerned.
+Notice, the method getYears() returns only the value of the year, getMonths() the value of month and getDays() only the value of the day, there is no accumulation on the time units.
 
 ```
 Period.of(1,2,3).getMonths(); //returns 2
@@ -19,3 +19,12 @@ var betw = Period.between(start,end).getDays(); //return 3;
 ```
 #### Duration
 The class Duration is suited for handling shorter amounts of time and represents an interval of time in seconds or nanoseconds.
+```
+var start = LocalDateTime.parse("2017-10-03T10:15:30.00");
+var end = LocalDateTime.parse("2018-10-05T10:16:30.00");
+var dur = Duration.between(start2,end2);
+dur.toDays(); // returns 367
+dur.toHours(); // returns 8808
+dur.toMinutes(); // returns 528481
+dur.toSeconds(); // returns 31708860
+```
