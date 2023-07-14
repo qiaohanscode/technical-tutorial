@@ -10,4 +10,10 @@ Notice, getDays() returns only the values of the unit day, the values of the uni
 ```
 Period.of(1,2,3).getMonths(); //returns 2
 Period.of(1,2,3).getDays(); //returns 3
+
+Period.ofWeeks(2).getDays(); //return 14 (2*7)
+
+var start = LocalDateTime.of(2023,1,1,0,0,0,0).toLocalDate();
+var end = LocalDateTime.of(2024,3,4,1,1,1,1).toLocalDate();
+var betw = Period.between(start,end).getDays(); //return 3;
 ```
