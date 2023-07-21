@@ -37,3 +37,11 @@ dur.toMillis(); // return 71220
 dur.getNano(); // return 220000000
 dur.toNanos(); // return 71220000000
 ```
+A Duration can also be negative
+````
+Duration dur = Duration.parse("-P1D1M11.22S");
+dur.toString();
+/*
+  Output: PT-24H-1M-11.22S
+*/
+````
