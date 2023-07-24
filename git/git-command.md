@@ -49,6 +49,10 @@ compare stash 1 with branch HEAD
 ```
 git diff stash@{1} HEAD
 ```
+compare between $COMMIT_1 und $COMMIT_2
+```
+git diff $COMMIT_1 $COMMIT_2
+```
 create a stash 
 ```
 git stash push -m "message for stash"
@@ -91,3 +95,28 @@ git add .
 git commit -m "new user added to local h2"
 git push 
 ````
+
+change information of a certain commit
+```
+git switch branch_with_commit_to_change
+
+git rebase -i previous_commit 
+/* the last commit before the commit which information should be changed */
+
+edit commit_to_change 
+/* marks the commit to be changed in the editor opened by git rebase */
+
+git commit --amend --author="qiaohanscode <timhanq@hotmail.com>" 
+/* change the author in the console opened by git rebase */
+
+git rebase --continue 
+/* return to the editor opended by git rebase */
+
+git commit -m "commit information" 
+/* add commit message in the editor opened by git rebase */
+
+/* repeat the step above and process all the changes */
+
+git rebase --continue 
+/* the rebase will be terminated after all the commits have been processed */
+```
