@@ -40,6 +40,22 @@ In other enviroment enabled with
 management.endpoint.health.probes.enabled=true          
 ````
 
+### Condition Annotations
+
+#### class Conditions
+- @ConditionalOnClass
+- @ConditionalOnMissingClass
+
+#### Bean Conditions
+- @ConditionalOnBean
+- @ConditionalOnMissingBean
+
+#### Property Conditions
+- @ConditionalOnProperty -- use ``prefix`` and ``name`` attributes to specify the property that should be checked. By default, any property that exists and is not equal to false is matched. Using ``havingValue`` and ``matchIfMissing`` attributes for advanced checks.
+
+#### Resource Conditions
+-@ConditionalOnResource -- Resources can be specified by using the usual Spring conventions, eg. ``file:/home/user/test.dat``.
+
 ### Application Information
 Build information is avaiable when META-INF/build.properties exists, which can be generated with spring boot maven plugin
 ````
