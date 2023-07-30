@@ -71,6 +71,8 @@ The resulting ``Authentication#getPrincipal``, by default, is a Spring Security 
 ``(3)`` ``JwtAuthenticationProvider`` decodes, verifies and validates the ``Jwt`` using a ``JwtDecoder``.<br>
 ``(4)`` ``JwtAuthenticaionProvider`` then uses the ``JwtAuthenticationConverter`` to convert the ``Jwt`` into a ``Collection`` of granted authorities.<br>
 ``(5)`` When the authentication is successful, the ``Authentication`` that is returned is of type ``JwtAuthenticationToken`` and has a principal that is the `Jwt` returned by the configured ``JwtDeocder``. Ultimately, the returned ``JwtAuthenticationToken`` will be set on the ``SecurityContextHolder`` by the authentication ``Filter``.<br>
+
+
 ### UserDetailsService
 - publishes a UserDetailsService as @Bean, Spring Security will not generate default password. 
 ```
