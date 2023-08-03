@@ -16,3 +16,5 @@ apply a configuration to the namespace
 ```
 kubectl apply -f secret.yaml
 ```
+scale a deployment
+kubectl scale --replicas=2 deployment $DEPLOYMENT_NAME
