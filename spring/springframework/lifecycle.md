@@ -40,4 +40,4 @@ Multiple lifcycle mechanisms configured for the same bean are ccalled as follows
 Desotry methods are called in the same order,
 1) Methods annotated with ``@PreDestroy``
 2) ``destroy()`` as defined by the ``DisposableBean`` callback
-3) Acustom configured ``destroy()`` method
+3) custom configured ``destroy()`` method
