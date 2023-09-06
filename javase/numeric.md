@@ -35,3 +35,23 @@ public static final double naN = 0.0d/0.0;
 
 public static int compare(double x, Double y);
 ````
+
+``Note: we can't have an exact representation of most double values in our computers, because there is an infinite number of values that must fit in limited memory space.``
+
+```
+double d1 = 0;
+for (int i = 1; i <= 8; i++) {
+    d1 += 0.1;
+ }
+
+double d2 = 0.1 * 8;
+
+System.out.println(d1);
+System.out.println(d2);
+```
+The output will be 
+```
+0.7999999999999999
+0.8
+```
+For precise calculation it is recommended to use BigDecimal.

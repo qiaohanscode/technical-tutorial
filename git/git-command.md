@@ -106,7 +106,7 @@ git rebase -i previous_commit
 edit commit_to_change 
 /* marks the commit to be changed in the editor opened by git rebase */
 
-git commit --amend --author="qiaohanscode <timhanq@hotmail.com>" 
+git commit --amend --author="qiaohanscode <timhanq@hotmail.com>" --date="$(date --date 'Mon, 04 Sep 2023 15:23:06 +0200')" 
 /* change the author in the console opened by git rebase */
 
 git rebase --continue 
@@ -119,4 +119,9 @@ git commit -m "commit information"
 
 git rebase --continue 
 /* the rebase will be terminated after all the commits have been processed */
+```
+
+fetch and remove any remote-tracking references that no longer exist on the remote
+```
+git fetch --all --prune
 ```
