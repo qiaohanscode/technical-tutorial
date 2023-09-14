@@ -1,2 +1,2 @@
-#### supports 6 responsive breakpoints
-xs,sm,md,lg,xl,xxl. The breakpoints are based on the 'min-width' media query, each breakpoint affects that breakpoint and all above that.
+- supports 6 responsive breakpoints - xs,sm,md,lg,xl,xxl. The breakpoints are based on the 'min-width' media query, each breakpoint affects that breakpoint and all above that.
+- Containers center and horizontally pad the content. Using one of then container class
