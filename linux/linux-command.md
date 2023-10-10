@@ -27,3 +27,8 @@ find specific text in files from specific folder
 ```
 find fcp/ -type f -exec grep -l "TARGET" {} \;
 ```
+add user to group vboxsf
+```
+sudo usermod -a -G vboxsf tim
+```
+
