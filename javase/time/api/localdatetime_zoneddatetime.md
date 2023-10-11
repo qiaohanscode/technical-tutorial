@@ -11,6 +11,11 @@ After instantiation the time zone of a LocalDateTime/LocalDate object can not be
 ````
 var ltNow = LocalDateTime.now(ZoneId.of("Europe/Berlin"));
 ````
+The method ``LocalDateTime.plus(long, TemporalUnit) `` allows to modify the current instance at every single time unit.
+```
+LocalDateTime ldtNow = LocalDateTime.now(ZoneId.of("Europe/Berlin"));
+ldtNow.plus(100,ChronoUnit.MILLIS);
+```
 
 #### ZonedDateTime
 The class ZonedDateTime contains information about the used time zone which may be modified after instantiation. But the modification of time zone will not cause the represented date and time to be modified, it only causes the time offset to be modified.

@@ -23,6 +23,8 @@ Float.compareTo(Float)
 or 
 Double.compareTo(Double)
 ````
+Note, 0.0d/0.0f is considered by this method to be greater than -0.0d/-0.0f
+
 define the static methods and the constant NaN,
 ````
 //equivalent to Float.intBitsToFloat(0x7fc00000)
