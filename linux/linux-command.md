@@ -31,4 +31,8 @@ add user to group vboxsf
 ```
 sudo usermod -a -G vboxsf tim
 ```
+#### SSH host key verification failed, remove the old host key from the known_hosts file
+```
+ssh-keygen -R <hostname>
+```
 
