@@ -9,3 +9,11 @@ sudo dseditgroup -o edit -a yiyuma -t user wheel
 zip -er GeZhongMiMa.zip ~/Han/GeZhongMiMa/GeZhongMiMa.txt
 ```
 
+### install nodejs
+```
+brew install node
+```
+
+
+
+
