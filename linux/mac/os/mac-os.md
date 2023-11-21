@@ -14,6 +14,11 @@ zip -er GeZhongMiMa.zip ~/Han/GeZhongMiMa/GeZhongMiMa.txt
 brew install node
 ```
 
+### install git
+```
+brew install git
+```
+
 
 
 
