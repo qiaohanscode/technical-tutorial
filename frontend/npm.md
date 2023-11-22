@@ -9,6 +9,11 @@ npm install -g @angular/cli/@13.3.10
 npm install -g @angular/cli
 ```
 
+uninstall global installed package angular cli
+```
+npm uninstall -g @angular/cli@16
+```
+
 list currently installed packages in prefix path
 ```
 npm list
