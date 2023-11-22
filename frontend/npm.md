@@ -1,4 +1,4 @@
-install dependence
+install dependency
 ```
 npm install
 ```
