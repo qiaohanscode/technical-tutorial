@@ -29,6 +29,8 @@ The settings `_auth`, `_authToken`, `username` and `_password`must all be scoped
 - `email`
 - `certfile` - path to certificate file
 - `keyfile` - path to key file
+`Note` - scope is the unit of the library, all functions of the library belong to the scope, eg. @angular.
+
 To scope these values, they must be prefixed by a URI fragment.
 ```
 ; bad config
