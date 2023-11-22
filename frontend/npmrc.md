@@ -9,6 +9,7 @@ registry=https://jfrog.io/artifactory/api/npm/npm-all/
 #//nexus-gcj.apps.ec1.aws.io/repository/npm-public/:email=timhanq@hotmail.com
 #//nexus-gcj.apps.ec1.aws.io/repository/npm-public/:_auth=$TOKEN
 ```
+
 ### Files
 Four files are relevant for npm. Each of theses files is loaded, the config options are solved in priority oder.
 - per-project config (/path/to/my/project/.npmrc)
@@ -16,7 +17,34 @@ Four files are relevant for npm. Each of theses files is loaded, the config opti
 - global config file ($PREFIX/etc/npmrc)
 - npm built in config file (/path/to/npm/npmrc)
 
-For details see https://docs.npmjs.com/cli/v9/configuring-npm/npmrc
-
 ### Comments
 Lines begin with `;` or `#`character are interpreted as comments
+
+### Auth related configuration.
+The settings `_auth`, `_authToken`, `username` and `_password`must all be scoped to a specific registry. This ensures that `npm`will never send credentials to the wrong host.
+- `_auth` - base64 authentication string
+- `_authToken` - authentication token
+- `usename`
+- `_password`
+- `email`
+- `certfile` - path to certificate file
+- `keyfile` - path to key file
+To scope these values, they must be prefixed by a URI fragment.
+```
+; bad config
+_authToken=MYTOKEN
+
+; good config
+@myorg:registry=https://somewhere-else.com/myorg
+@another:registry=https://somewhere-else.com/another
+//registry.npmjs.org/:_authToken=MYTOKEN
+; would apply to both @myorg and @another
+; //somewhere-else.com/:_authToken=MYTOKEN
+; would apply only to @myorg
+//somewhere-else.com/myorg/:_authToken=MYTOKEN1
+; would apply only to @another
+//somewhere-else.com/another/:_authToken=MYTOKEN2
+```
+
+For details see https://docs.npmjs.com/cli/v9/configuring-npm/npmrc
+
