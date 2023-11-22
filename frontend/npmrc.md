@@ -1,4 +1,4 @@
-.npmrc contains the runtime configuration for npm
+.npmrc contains the runtime configuration for npm. `.npmrc`files are parsed by `npm/ini`
 ```
 #always-auth = true
 #email = timhanq@hotmail.com
