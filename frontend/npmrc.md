@@ -48,5 +48,20 @@ _authToken=MYTOKEN
 //somewhere-else.com/another/:_authToken=MYTOKEN2
 ```
 
+### Set registry
+´´´
+npm config set registry https://your-registry.domain.io/path/to/repository
+```
+
+### Set login credentials for registry
+```
+npm login --registry=https//your-registry.domain.io/path/to/repository
+```
+
+### Set Proxy
+```
+npm config set https-proxy http://your-proxy.domain.io:8080
+npm config set proxy http://your-proxy.domain.io:8080
+```
 For details see https://docs.npmjs.com/cli/v9/configuring-npm/npmrc
 
