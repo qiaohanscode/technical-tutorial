@@ -9,4 +9,14 @@ registry=https://jfrog.io/artifactory/api/npm/npm-all/
 #//nexus-gcj.apps.ec1.aws.io/repository/npm-public/:email=timhanq@hotmail.com
 #//nexus-gcj.apps.ec1.aws.io/repository/npm-public/:_auth=$TOKEN
 ```
+### Files
+Four files are relevant for npm,
+- per-project config (/path/to/my/project/.npmrc)
+- per-user config file (~/.npmrc)
+- global config file ($PREFIX/etc/npmrc)
+- npm built in config file (/path/to/npm/npmrc)
+
+Each of theses files is loaded, the config options are solved in priority oder.
+
+
 For details see https://docs.npmjs.com/cli/v9/configuring-npm/npmrc
