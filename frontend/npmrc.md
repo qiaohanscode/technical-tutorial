@@ -29,7 +29,7 @@ The settings `_auth`, `_authToken`, `username` and `_password`must all be scoped
 - `email`
 - `certfile` - path to certificate file
 - `keyfile` - path to key file
-`Note` - scope is the unit of the library, all functions of the library belong to the scope, eg. @angular.
+`Note` - scope is the id of a library within npm repository, all packages of the library are scoped to this id, eg. @angular.
 
 To scope these values, they must be prefixed by a URI fragment.
 ```
