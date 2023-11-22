@@ -6,6 +6,7 @@ npm install
 install angular cli to global path
 ```
 npm install -g @angular/cli/@13.3.10
+npm install -g @angular/cli
 ```
 
 list currently installed packages in prefix path
