@@ -49,7 +49,7 @@ _authToken=MYTOKEN
 ```
 
 ### Set registry
-´´´
+```
 npm config set registry https://your-registry.domain.io/path/to/repository
 ```
 
