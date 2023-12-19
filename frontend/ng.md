@@ -3,6 +3,12 @@ add/install a package
 ng add @allianz/ngx-ndbx
 ng add @angular-devkit/schematics@16.2.10
 ```
+update angular
+```
+ng update
+
+ng update @angular/cli@17.0.7 --force
+```
 
 create a new project/workspace
 ```

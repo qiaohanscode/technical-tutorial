@@ -14,6 +14,11 @@ uninstall global installed package angular cli
 npm uninstall -g @angular/cli@16
 ```
 
+deinstall angular cli
+```
+npm deinstall @angular/cli
+```
+
 list currently installed packages in prefix path
 ```
 npm list
