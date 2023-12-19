@@ -44,6 +44,7 @@ wget https://github.com/Mirantis/cri-dockerd/releases/download/v0.3.7/cri-docker
 sudo dnf install cri-dockerd-0.3.7.20231027185657.170103f2-0.el7.x86_64.rpm
 ```
 ## Step 2 -- Configure Kubernetes Node on Linux
+`Kubeadm` needs to be installed on each node in the cluster.
 ### Forwarding IPv4 and letting iptables see bridged traffic
 - execute the below instructions:
 ```
@@ -116,7 +117,7 @@ cgroupDriver: systemd
   ```
   sudo dnf install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
   ```
-- enable kubelet to ensure itÄs automatically started on startup
+- enable kubelet to ensure it as automatically started on startup
   ```
   sudo systemctl enable --now kubelet
   ```
@@ -124,6 +125,10 @@ cgroupDriver: systemd
 - Initializing control-plane node
 ```
 sudo kubeadm init --config kubeadm_init_config.yaml
+or
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+or
+sudo kubeadm join
 ```
 - document of kubeadm https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/
 - document of kubeadm --config https://kubernetes.io/docs/reference/config-api/kubeadm-config.v1beta3/
@@ -184,14 +189,24 @@ rm /etc/containerd/config.toml
 systemctl restart containerd
 sudo kubeadm init --apiserver-advertise-address=192.168.178.64
 ```
+`Note` for high availability specify `--control-plane-endpoint` to set the shared endpoint for all `control-plane` nodes. Such an endpoint can be either a DNS name or an IP Address of a load-balancer. Here is an example mapping:
+```
+192.168.0.102 cluster-endpoint
+```
+Where `192.168.0.102` is the IP address of this node and `cluster-endpoint` is a custom DNS name that maps to this IP. This allows you to pass `--control-plane-endpoint=cluster-endpoint`to `kubeadm init` and the same DNS name to `kubeadm join`. Later you can modify `cluster-endpoint`to point to the address of your load-balancer in a high availability scenario.  
 
-## Reconfigure a configured kubernetes cluster
-```
-sudo kubeadm reset
-```
 ## kubeadm token list -- show token
 ```
 kubeadm token list
+```
+Tokens expire by default after 24 hours. Create a new token with the following command,
+```
+kubeadm token create
+```
+To get the value of `--discovery-token-ca-cert-hash`, run the following command,
+```
+openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
+  openssl dgst -sha256 -hex | sed 's/^.* //' 
 ```
 ## Deploy a pod network addon
 ```
@@ -204,6 +219,11 @@ kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.3
 
 watch kubectl get pods -n calico-system
 ```
+`Note` it is only allowd to install one Pod network per cluster. Once the `CoreDNS` Pod (cluster DNS) is up and running, further nodes can be joined.
+`Note` To provide higher availability, you need to rebalance the CoreDNS Pods with the following command after at least one new node is joined.
+```
+kubectl -n kube-system rollout restart deployment coredns
+```
 `Troubleshooting`
 - links: https://medium.com/@texasdave2/troubleshoot-kubectl-connection-refused-6f5445a396ed
 
@@ -211,6 +231,7 @@ watch kubectl get pods -n calico-system
 ```
 kubectl cluster-info
 kubectl config view
+journalctl -xe
 ```
 - check your component status
 ```
@@ -273,7 +294,26 @@ curl -O -L https://github.com/flannel-io/flannel/releases/latest/download/kube-f
 kubectl apply -f kube-flannel.yml
 ````
 
+## Clean up
+To deprovision the cluster cleanly, the following steps need to be executed
 
+### Remove the node
+```
+kubectl drain <node name> --delete-emptydir-data --force --ignore-daemonsets
+```
+Before removing the node, reset the state installed by `kubeadm`
+```
+kubeadm reset
+```
+
+Now remove the node
+```
+kubectl delete node <node name>
+```
+## Clean up the control plane/ re-configure a kubernetes cluster
+```
+sudo kubeadm reset
+```
 
 
 
