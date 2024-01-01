@@ -23,3 +23,8 @@ scale a deployment
 ```
 kubectl scale --replicas=2 deployment $DEPLOYMENT_NAME
 ```
+
+show logs as a stream, the new logs will be showed in stream
+```
+kubectl logs -n kube-system --follow=true calico-node-b5d72
+```

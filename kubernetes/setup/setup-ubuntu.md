@@ -1,9 +1,22 @@
 ### OS: Ubuntun 22.04, Kubernetes v1.29
+### Step 1 Set hostname on master and worker nodes
+```
+sudo hostnamectl hostname ekl-k8s-master-1.fritz.box
+sudo hostnamectl hostname ekl-k8s-worker-1.fritz.box
+sudo hostnamectl hostname ekl-k8s-worker-2.fritz.box
+```
+
 ### Step 1 Disable swap & Add kernel parameters. 
 The following commands need to be executed on all the nodes
 ```
 sudo swapoff -a
 sudo sed -i 's/^\/swap/#\/swap/g' /etc/fstab
+```
+`Note:` check swap usage with following commands
+```
+free -h
+lsblk
+blkid
 ```
 
 Forwarding IPv4 and letting iptables see bridged traffic
@@ -99,7 +112,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ### Step 5 Install Kubernetes Cluster
 Run following kubeadm on the master node
 ```
-sudo kubeadm init --control-plane-endpioint=ekl-k8s-master-node.fritz.box 
+sudo kubeadm init --control-plane-endpoint=ekl-k8s-master-1.fritz.box 
 # ? --pod-network-cidr=192.168.0.0/16
 ```
 
@@ -114,19 +127,10 @@ Run following kubectl command to view cluster and node status
 ```
 kubectl cluster-info
 kubectl get nodes
+kubectl get componentstatuses
 ```
 
-### Step 6 Join worker nodes to the cluster
-On each worker node, use kubeadm join command to add worker node
-sudo kubeadm join ekl-k8s-master-node:6443 --token <token> \
---discovery-token-ca-cert-hash sha256:<token-hash>
-
-Check the nodes status from master node using kubectl command
-```
-kubectl get nodes
-```
-
-### Step 7 Install Calico Network Plugin
+### Step 6 Install Calico Network Plugin
 A network plugin is responsible for communication between pods in the cluster
 - Install with operator
 ```
@@ -142,6 +146,7 @@ kubectl create -f custom-resources.yaml
 #Verify Calico installation in your cluster
 watch kubectl get pods -n calico-system
 ```
+
 - Install directly with Manifest
 ```
 #Download the Calico networking manifest for the Kubernetes API datastore
@@ -156,6 +161,16 @@ watch kubectl get pods -n kube-system
 
 Check the nodes status 
 ```
+kubectl get nodes
+```
+
+### Step 7 Join worker nodes to the cluster
+On each worker node, use kubeadm join command to add worker node
+```
+sudo kubeadm join ekl-k8s-master-node:6443 --token <token> \
+--discovery-token-ca-cert-hash sha256:<token-hash>
+
+# Check the nodes status from master node using kubectl command
 kubectl get nodes
 ```
 
@@ -189,6 +204,15 @@ curl http://<worker-node-ip-address>:31246
 #### Uninstall old versions of containerd
 ```
 for pkg containerd runc; do sudo apt remove $pkg; done
+```
+
+#### Delete a worker node
+```
+# safely evict pods of the node
+kubectl drain --ignore-daemonsets ekl-k8s-worker-1.fritz.box
+
+# delete the node
+kubectl delete node ekl-k8s-worker-1.fritz.box
 ```
 #### Links
 `How to Install Kubernetes Cluster on Ubuntu 22.04` </br>
