@@ -27,3 +27,4 @@ class Dog:
 'Buddy'
 ```
 `instance variable` can theoritically be defined every where, it will normally be defined within the `__init__` methode.
+https://docs.python.org/3/tutorial/classes.html#class-and-instance-variables
