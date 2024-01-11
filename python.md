@@ -1,6 +1,11 @@
 ### Python ORM sqlalchemy
+```
+from sqlalchemy import Connection, select
+from sqlalchemy.orm import Session
+```
+
 ### Class and Instance Variables
-instance varialbes are for data unique to each insance and class variables are for attributes
+`instance varialbes` are for data unique to each insance and `class variables` are for attributes
 and methods shared by all instances of the class
 ```
 class Dog:
@@ -10,3 +15,4 @@ class Dog:
     def __init__(self, name):
         self.name = name    # instance variable unique to each instance
 ```
+`instance variable` can theoritically be defined every where, it will normally be defined within the __init__ methode.
