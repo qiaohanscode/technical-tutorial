@@ -4,6 +4,8 @@ from sqlalchemy import Connection, select
 from sqlalchemy.orm import Session
 ```
 
+### Rest API Framework -- FastAPI 
+
 ### Class and Instance Variables
 `instance varialbes` are for data unique to each insance and `class variables` are for attributes
 and methods shared by all instances of the class
