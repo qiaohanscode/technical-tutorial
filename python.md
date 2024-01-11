@@ -15,4 +15,4 @@ class Dog:
     def __init__(self, name):
         self.name = name    # instance variable unique to each instance
 ```
-`instance variable` can theoritically be defined every where, it will normally be defined within the __init__ methode.
+`instance variable` can theoritically be defined every where, it will normally be defined within the `__init__` methode.
