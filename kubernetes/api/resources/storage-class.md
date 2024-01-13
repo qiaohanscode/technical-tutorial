@@ -1,0 +1,30 @@
+## Storage Class
+- provisions Persistent Volumes dynamically
+- when PersistentVolumeClaim claims it
+
+```
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: storage-class-name
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: io1
+  iopsPerGB: "10"
+  fsType: ext4
+```
+- Requested by `PersistentVolumeClaim`
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mypvc
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+    storageClassName: storage-class-name
+```
+
