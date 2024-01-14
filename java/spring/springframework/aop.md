@@ -1,5 +1,5 @@
 ### Aspect Oriented Programming
-a proxy-based AOP Framework, supports currently only method execution join points on spring beans. Field interception (typically domain object) is not implemented (AspectJ is the best choice).
+a proxy-based AOP Framework, supports currently only method execution join points on java.spring beans. Field interception (typically domain object) is not implemented (AspectJ is the best choice).
 
 - Aspect: a modularization of a concern that cuts across multiple classes, e.g. transaction managenebt. Implemented with @Aspect (@AspectJ style) or schema-based
 - JoinPoint: is a point during the execution of a program, eg. execution of a method or handeling of a exception. In Spring AOP a join point always represents  a method execution.

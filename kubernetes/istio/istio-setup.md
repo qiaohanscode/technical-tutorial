@@ -1,3 +1,8 @@
+Istio is an open source service mesh that layers transparently onto existing distributed applications.
+
+A service mesh is a dedicated infrastructure layer that you can add to your applications. It allows you to transparently
+add capabilities like observability, traffic management and security, without adding them to your own code.
+
 ### Download Istio Release
 Download and extract Istio release automatically (Linux & MacOs)
 ```
@@ -31,6 +36,16 @@ kubectl get pod -n istio-system
 kubectl get svc -n istio-system
 ```
 
+### Create Istio Gateway
+```
+kubectl apply -f ekl-k8s-gateway.yaml
+```
+
+### Install Kiali
+```
+kubectl apply -f ekl-k8s-virtual-service-kiali.yaml
+```
+
 ### Uninstall Istio
 ```
 istioctl uninstall --purge
@@ -38,3 +53,6 @@ istioctl uninstall --purge
 //the namespace will not removed automaticall and can be removed with kubectl
 kubectl delete namespace istio-system
 ```
+
+### Appendix A -- useful links
+- Istio -- https://istio.io/latest/

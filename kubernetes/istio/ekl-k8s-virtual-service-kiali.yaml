@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: ekl-k8s-virtual-service-kiali
+  namespace: istio-system
+spec:
+  hosts:
+    - kiali.ekl-k8s.srv
+  gateways:
+    - ekl-k8s-gateway
+  http:
+    - route:
+        - destination:
+            host: kiali.istio-system.svc.cluster.local
+            port:
+              number: 20001
+      timeout: 60s

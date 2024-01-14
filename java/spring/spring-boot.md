@@ -9,7 +9,7 @@ server.ssl.key-store-password=$KEY_STORE_PASSWORD
 server.ssl.trust-store=$PATH_TRUST_STORE
 server.ssl.trust-store-password=$KTRUST_STORE_PASSWORD
 ````
-### Monitoring -- the module spring-boot-actuator provides the functionality for monitoring.
+### Monitoring -- the module java.spring-boot-actuator provides the functionality for monitoring.
 ### Port
 ````
 management.server.port=8081
@@ -57,12 +57,12 @@ management.endpoint.health.probes.enabled=true
 -@ConditionalOnResource -- Resources can be specified by using the usual Spring conventions, eg. ``file:/home/user/test.dat``.
 
 ### Application Information
-Build information is avaiable when META-INF/build.properties exists, which can be generated with spring boot maven plugin
+Build information is avaiable when META-INF/build.properties exists, which can be generated with java.spring boot maven plugin
 ````
 <plugins>
     <plugin>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
+        <artifactId>java.spring-boot-maven-plugin</artifactId>
         <configuration>
             ...
         </configuration>

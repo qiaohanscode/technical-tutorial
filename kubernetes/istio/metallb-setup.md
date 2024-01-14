@@ -1,3 +1,11 @@
+Kubernetes does not offer an implementation of network load balancers (Services of type LoadBalancer) for bare-metal
+clusters. Bare-metal cluster operators are left with two lesser tools to bring user traffic into their clusters, 
+"NodePort" and "externalIPs" services. Both of these options have significant downsides for production use, which makes
+bare-metal clusters second-class citizens in the kubernetes ecosystem.
+
+MetalLB hooks into your kubernetes cluster and provides a network load-balancer implementation. In short, it allows you
+to create kubernetes services of type `LoadBalancer` in clusters that don't run on a cloud provider. 
+
 ### Preparation
 By using kube-proxy in IPVS mode, since k8s v1.14.2 you need to enable strict ARP mode
 ```
@@ -63,3 +71,10 @@ Save the Layer 2 configuration to metallb-l2-range-allocation.yaml and apply
 ```
 kubectl apply -f metallb-l2.range-allocation.yaml
 ```
+
+### Appendix A -- Useful links
+#### k9s -- a terminal based UI to interact with your Kubernetes clusters
+https://k9scli.io/
+
+#### Ein useful tutorial for installing MetalLB
+https://akyriako.medium.com/load-balancing-with-metallb-in-bare-metal-kubernetes-271aab751fb8

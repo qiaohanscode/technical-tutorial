@@ -15,14 +15,14 @@ public class EklSecurityConfiguration {
 ```
 ### OAuth 2.0 Resource Server, Authentication with JWT
 #### Dependencies for JWT
-  - spring-security-oauth2-resource-server -- Resource Server support of Spring Security
-  - spring-security-oauth2-jose -- support for decoding and verifying JWTs
+  - java.spring-security-oauth2-resource-server -- Resource Server support of Spring Security
+  - java.spring-security-oauth2-jose -- support for decoding and verifying JWTs
 #### Configurtion for JWTs 
 when using Spring Boot, configuring an application as a resource server consists of two basic steps,
   - include the needed dependencies
   - specifying the Authorization Server
     ```
-    spring:
+    java.spring:
       security:
         oauth2:
           resourceserver:
