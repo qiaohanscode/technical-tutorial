@@ -83,3 +83,8 @@ kubectl create deployment nginx-deply --image nginx
 
 kubectl exec -it $POD_NAME -- /bin/bash
 ```
+
+To see your configuration
+```
+kubectl config view
+```
