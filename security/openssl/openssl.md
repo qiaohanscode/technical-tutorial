@@ -67,3 +67,7 @@ openssl rsa -in ekl-fritz-box-privkey.pem -out ekl-fritz-box-privkey.key
 ```
 openssl x509 -req -in ../ekl-fritz-box/ekl-fritz-box.csr -CA ponyworld-infra-ca.crt -CAkey ponyworld-infra-ca-privkey.pem -days 730 -CAserial ponyworld-infra-ca.srl -extfile ../ekl-fritz-box/ekl-fritz-box-x509.ext -out ../ekl-fritz-box/ekl-fritz-box.crt
 ```
+#### view the created certificate
+```
+openssl x509 -in ../ekl-fritz-box/ekl-fritz-box.crt -text -noout|less -N
+```

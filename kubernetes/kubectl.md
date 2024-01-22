@@ -88,3 +88,18 @@ To see your configuration
 ```
 kubectl config view
 ```
+
+switch between clusters by using the following command
+```
+kubectl config use-context
+```
+
+set the current context:
+```
+kubectl config --kubeconfig=config-demo use-context dev-frontend
+```
+
+get the list of csr
+```
+kubectl get csr -n ekl-k8s-dev
+```
