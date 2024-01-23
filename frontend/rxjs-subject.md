@@ -153,3 +153,32 @@ setTimeout(() => {
 // observerB: 6
 // ...
 ```
+
+### AsyncSubject
+The `AsyncSubject` is a variant where only the last value of the `Observable` execution is sent to its observers, and only when the execution completes.
+```
+import { AsyncSubject } from 'rxjs';
+const subject = new AsyncSubject();
+
+subject.subscribe({
+  next: (v) => console.log(`observerA: ${v}`),
+});
+
+subject.next(1);
+subject.next(2);
+subject.next(3);
+subject.next(4);
+
+subject.subscribe({
+  next: (v) => console.log(`observerB: ${v}`),
+});
+
+subject.next(5);
+subject.complete();
+
+// Logs:
+// observerA: 5
+// observerB: 5
+```
+
+The `AsyncSubject` is similar to the last() operator, in that ti waits for the `complete` notification in order to deliver a single value.
