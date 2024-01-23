@@ -58,6 +58,7 @@ There are also a few specializations of the `Subject` types:
 - `BehaviorSubject`
 - `ReplaySubject`
 - `AsyncSubject`
+-  `VoidSubject`
 
 ### BehaviorSubject
 `BehaviorSubject` has a notion of "the current value". It stores the latest value emitted to its consumers, and whenever a new `Observer` subscribes, it will immediately receive the "current value" from the `BehaviorSubject`.
