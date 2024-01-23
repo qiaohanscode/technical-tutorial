@@ -71,3 +71,40 @@ subjects:
   kind: User
   name: ekl-k8s-dev-edit
 ```
+
+#### step 4 create kubeconfig file
+create the file .kube/ekl-k8s-dev-edit/config
+
+```
+apiVersion: v1
+kind: Config
+preferences: {}
+
+clusters:
+- cluster:
+  name: ekl-k8s-dev
+
+contexts:
+- context:
+  name: ekl-k8s-dev-edit
+
+users:
+- name: ekl-k8s-dev-edit
+```
+
+add cluster details
+```
+# export ca-certificate to environment variable
+export cluster_ca=$(cat .kube/cluster-admin/config|grep -e "certificate-authority-data"| \
+sed -e 's/certificate-authority-data://g'| \
+tr -d "[:blank:]"| \
+tr -d "\n")
+
+# set cluster details
+kubectl config --kubeconfig=.kube/ekl-k8s-dev-edit/config set-cluster ekl-k8s-dev \
+--server=https://ekl-k8s-master-1.fritz.box:6443 \
+--certificate-authority=$(echo $cluster_ca)
+
+# change to certificate-authority-data
+sed -i -e 's/certificate-authority/certificate-authority-data/g' .kube/ekl-k8s-dev-edit/config
+```
