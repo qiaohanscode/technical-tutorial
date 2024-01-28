@@ -66,3 +66,14 @@ Area code: (666) Second: 555- Third: 1215
 Area code: (666) Second: 555- Third: 1216 
 Area code: (777) Second: 555- Third: 1217
 ```
+
+### Regex
+Character Class
+1. Blank characters (space or tabs)
+```
+[[:blank:]]
+```
+### Appendix A Useful Links
+https://www.tutorialspoint.com/unix/unix-regular-expressions.htm
+
+https://www.gnu.org/software/sed/manual/html_node/Regular-Expressions.html
