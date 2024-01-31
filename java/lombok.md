@@ -38,3 +38,6 @@ Assert.isTrue(set.contains(testEntity), "Entity not found in the set");
 ```
 
 The assertion will fail because the hash of the object testEntity is different after persistence in database.
+
+- Accidentally Loading Lazy Attributes
+Calling the method hashCode() on a lazy `@OneToMany` may fetch all the entities it contains. This can easily harm the application performance, and it can also lead to a `LazyInitializationException` if it happens outside a transaction. So the Intellij plugin `jpabuddy` recommends not to use `@EqualsAndHasCode` and `@Data`. Instead you can use the safe `lombok` annotations and let `jpabuddy` generate the methods `hascode()` and `equals()`.
