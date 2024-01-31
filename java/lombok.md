@@ -45,3 +45,9 @@ Calling the method hashCode() on a lazy `@OneToMany` may fetch all the entities 
 
 ## @ToString
 `@ToString` may also cause the error mentioned above (Accidentally Loading Lazy Attributes). But `@ToString` can bstill be used, but all the lazy fields need to be excluded with `@ToString.Exclude`, or by using `ToString(onlyExplicityIncluded = true)` on the class and `@ToString.Include` on non-lazy fields.
+
+## @Data
+`@Data` consists of `@EqualsAndHashCode`, `@RequiredArgsConstructor`, `@Getter`, `@Setter` and `@ToString`, and should not be used for entities at all.
+
+## @RequiredArgsConstructor & @AllArgsConstructor
+Makes sure to add `@NoArgsConstructor` by entities if one (or both) of these two annotations has been used. 
