@@ -43,5 +43,5 @@ The assertion will fail because the hash of the object testEntity is different a
   
 Calling the method hashCode() on a lazy `@OneToMany` may fetch all the entities it contains. This can easily harm the application performance, and it can also lead to a `LazyInitializationException` if it happens outside a transaction. So the Intellij plugin `jpabuddy` recommends not to use `@EqualsAndHasCode` and `@Data` for entities. Instead you can use the safe `lombok` annotations (`@Getter`, `@Setter`, `@ToString` & `@RequiredArgsConstructor`) and let `jpabuddy` generate the methods `hascode()` and `equals()`.
 
-### @ToString
+## @ToString
 `@ToString` may also cause the error mentioned above (Accidentally Loading Lazy Attributes). But `@ToString` can bstill be used, but all the lazy fields need to be excluded with `@ToString.Exclude`, or by using `ToString(onlyExplicityIncluded = true)` on the class and `@ToString.Include` on non-lazy fields.
