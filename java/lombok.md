@@ -1,6 +1,6 @@
 - @Value -- the immutable variant of @Data
 
-## @EqualsAndHansCode
+## @EqualsAndHashCode
 `@EaualsAndHashCode` includes all the object fields by default and may cause errors with JPA.
 ### Error 1: Broken HashSets (and HashMaps) with `GenerationType.IDENTITY`
 
@@ -51,3 +51,6 @@ Calling the method hashCode() on a lazy `@OneToMany` may fetch all the entities 
 
 ## @RequiredArgsConstructor & @AllArgsConstructor
 Makes sure to add `@NoArgsConstructor` by entities if one (or both) of these two annotations has been used. 
+
+## Appendix A Links
+- https://jpa-buddy.com/blog/lombok-and-jpa-what-may-go-wrong/
