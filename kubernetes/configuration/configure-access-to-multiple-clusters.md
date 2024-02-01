@@ -53,15 +53,15 @@ kubectl config --kubeconfig=config-demo set-credentials experimenter --username=
 `Note:`
 - To delete a user
 ```
-kubectl --kubeconfig=config-demo config unset users.<name>
+kubectl --kubeconfig=config-demo config delete-user qiao-han
 ```
 - To remove a cluster
 ```
-kubectl --kubeconfig=config-demo config unset clusters.<name>
+kubectl --kubeconfig=config-demo config delete-cluster ekl-k8s-dev
 ```
 - To remove a context
 ```
-kubectl --kubeconfig=config-demo config unset contexts.<name>
+kubectl --kubeconfig=config-demo config delete-context ekl-k8s-dev-edit
 ```
 
 ### Step 4 Add context details
