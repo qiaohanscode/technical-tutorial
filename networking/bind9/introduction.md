@@ -45,15 +45,15 @@ The tree structure ensures that the `DNS` name space is naturally distributed. T
 
 Root 
 DNS                                           root (.)                                               Authority
-                               ____________________________________                                  Delegation
-                         _____|______                       _______|________                                              
-                         |    |    |                        |                                            
-TLD                    .com .org  ()
-DNS
-
-
-User 
-DNS                                             
+                                _______________|____________________                                  Delegation
+                         ______|______                       _______|________                                              
+                        |     |       |                     |       |        |                                      
+TLD                    .com  ( )   .org                    .us     ( )      .uk
+DNS                           |                                     |
+                              |                                     |
+                   ___________|_______                      ________|_________
+User               |          |       |                     |       |         |   
+DNS            .example      .b      .c                    .co     .ac       .org
                                              
                                              
                                                                                                      
