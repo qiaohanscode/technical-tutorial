@@ -58,3 +58,11 @@ DNS            .example      .b      .c                    .co     .ac       .or
                                              
                                                                                                      
 ```
+
+### Root Servers
+The `root servers` are a critical part of `DNS` authoritative infrastructure. There are 13 `root name servers` operated by 12 independent organisations. There are over 1758 instances of `root servers` which are also operated by the 12 independent operators. Further information is available at https://www.root-servers.org.   
+
+### Name resolution
+The process of converting `domain name` to IP address is called `name resolution`, and is handled by `resolvers`  (aka. `caching name servers`).
+
+An end-user application, such as a browser, makes at first an internal system call to `stub resolver`. The `stub resolver` (using cached IP addresses) contacts a `resolver` (a caching resolver or a full-service resolver) which in turn contacts all the necessary authoritative name servers (`DNS root server`, `DNS TLD Domain`, `DNS User Domain`) to provide answer to the end user. To improve performance, all resolvers (include `stub resolver`) cache their results. All communication between `stub resolver`, `resolver` and the authoritative `name servers` uses the `DNS` protocol's query and response message pair.
