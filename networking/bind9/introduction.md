@@ -69,6 +69,7 @@ An end-user application, such as a browser, makes at first an internal system ca
 
 ### DNS Protocol and Queries
 `DNS queries` use the protocol `UDP` over the reserved port 53, but both `TCP` and `TLS` can optionally be used.
+![tddd](/networking/bind9/recursive-query.png)
 
 The name resolution process contains the following steps,
 - The `stub resolver` sends a `recursive query` message with the required domain name in the `QUESTION` section of the query to the `resolver`.
