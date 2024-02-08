@@ -66,3 +66,21 @@ The `root servers` are a critical part of `DNS` authoritative infrastructure. Th
 The process of converting `domain name` to IP address is called `name resolution`, and is handled by `resolvers`  (aka. `caching name servers`).
 
 An end-user application, such as a browser, makes at first an internal system call to `stub resolver`. The `stub resolver` (using cached IP addresses) contacts a `resolver` (a caching resolver or a full-service resolver) which in turn contacts all the necessary authoritative name servers (`DNS root server`, `DNS TLD Domain`, `DNS User Domain`) to provide answer to the end user. To improve performance, all resolvers (include `stub resolver`) cache their results. All communication between `stub resolver`, `resolver` and the authoritative `name servers` uses the `DNS` protocol's query and response message pair.
+
+### DNS Protocol and Queries
+`DNS queries` use the protocol `UDP` over the reserved port 53, but both `TCP` and `TLS` can optionally be used.
+
+The name resolution process contains the following steps,
+- The `stub resolver` sends a `recursive query` message with the required domain name in the `QUESTION` section of the query to the `resolver`.
+  - A `recursive` query requests the `resolver` to find the complete answer. 
+  - A `stub resolver` only sends `recursive queries` and always needs the service of a `resolver`. 
+  - The response to a `recursive query` can be:
+    1. The answer to the user's `Question` in the `Answer` section of the query response
+    2. An error (such as NXDOMAIN - the name does not exist)
+
+- The `resolver` receives the `recursive query` and will
+  1. respond immediately, if the `ANSWER` is in its cache
+  2. access the `DNS herarchy` to obtain the answer. The `resolver` always starts with `root servers` and sends an `iterative query`. The reponse to an `iterative query` can be:
+     1. The answer to the `resolver's QUESTION ` in the `ANSWER` section of the query response
+     2. A `referal` (indicated by an empty `ANSWER` section but data in the `AUTHORITY` section, and typically `IP`addresses in the `ADDITIONAL` section of the response)
+     3. An error (such as `NXDOMAIN - the name does not exist)
