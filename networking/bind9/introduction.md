@@ -116,3 +116,8 @@ For further information read [RFC 1034](https://datatracker.ietf.org/doc/html/rf
 **BIND 9** is a complete implementation of the **DNS** protocol. **BIND 9** can be configured (using its `named.conf` file) as an `authoritiative name server`, a `resolver`, and, on supported host, a `stub resolver`. 
 
 Smaller operators will use **BIND 9** to configure a single **DNS server** acting as both an **authoritative name server** and a **resolver** 
+
+### DNS Security Overview
+**DNS** is a communications protocol. All communication protocols are potentially vulnerable to both subversion and eavesdropping. 
+
+To increase security, consider to configure **DNS over TLS**
