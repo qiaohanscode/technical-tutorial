@@ -72,7 +72,7 @@ An end-user application, such as a browser, makes at first an internal system ca
 
 The name resolution process contains the following steps,
 
-![Resolvers and Queries](recursive-query.png)
+![Resolvers and Queries](images/recursive-query.png)
 
 #### Step 1 *Stub Resolve*r sends a *Recursive Query*
 The `stub resolver` sends a `recursive query` message (2) with the required domain name in the `QUESTION` section of the query to the `resolver`,
