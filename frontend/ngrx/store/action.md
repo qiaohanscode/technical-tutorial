@@ -9,3 +9,7 @@ interface Action {
 }
 ```
 
+The `type` property is for describing the action that will be dispatched in your application. The value of the type comes in the form `[Source] Event` where
+- Source --- describes where an action was dispatched
+- Evvent -- describes what category of action it is
+
