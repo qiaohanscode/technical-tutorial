@@ -34,4 +34,14 @@ export const login = createAction(
 
 ```
 
+The `createAction` function returns a function, that when called returns an object in the shape of the `Action` interface. The `prop` method is used to define any additional metadata needed for the hadling of the action. Action creators provide a consistent, type-safe way to construct an action that is being dispatched.
+
+Use the action creator to return the `Action ` when dispatching.
+`login-page.componentts`
+```
+onSubmit(username: string, password: string) {
+  store.dispatch(login({username: username, password: password}));
+}
+```
+
 
