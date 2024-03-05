@@ -22,6 +22,7 @@ There are a few rules to write good actios wthin you application,
 - Event-Driven -- capture events ___not___ commands as you are separating the description of an event and the handling of that event.
 
 An Example
+
 ___login-page.actions.ts___
 ```
 import { createAction, props } from '@ngrx/store';
