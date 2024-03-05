@@ -3,9 +3,9 @@ Actions express ___unique events___ that happen throughout the application. From
 
 Actions are the inputs and outputs of many systems in NgRx. An `Action` is made uo of a simple interface:
 
-``
+```
 interface Action {
   type: string;
 }
-``
+```
 
