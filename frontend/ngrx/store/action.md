@@ -37,6 +37,7 @@ export const login = createAction(
 The `createAction` function returns a function, that when called returns an object in the shape of the `Action` interface. The `prop` method is used to define any additional metadata needed for the hadling of the action. Action creators provide a consistent, type-safe way to construct an action that is being dispatched.
 
 Use the action creator to return the `Action ` when dispatching.
+
 `login-page.componentts`
 ```
 onSubmit(username: string, password: string) {
@@ -44,4 +45,8 @@ onSubmit(username: string, password: string) {
 }
 ```
 
+The `login` action creator receeives an object of `username` and `password` and returns a plain JavaScript object with a `type` property of `[Login Page] Login`, with `username` and `password` as additional properties. The returned action has very specific context about where the ation came from and what event happended.
+- The category of the action is captured within the squared brckets `[]`.
+- The caategory is used to group actions for a particular area, whether it be a component page, bckend API, or browser API.
+- The `Login` text after the category is a description about what event occurred fom this action.
 
