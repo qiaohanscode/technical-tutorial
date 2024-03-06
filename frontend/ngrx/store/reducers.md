@@ -182,3 +182,10 @@ bootstrapApplication(AppComponent, {
 });
 ```
 
+After the feature is loaded, the `game` key becomes a property in the object and is now manged in the state.
+```
+{
+  game: { home: 0, away: 0 }
+}
+```
+Whether your feature states are loaded eagerly or lazily depends on the needs of your application. You use feature states to build up your state object over time and through different feature areas.
