@@ -69,4 +69,4 @@ export const scoreboardReducer = createReducer(
 ```
 In the wxample above, the reducer is handling 4 actions. Each action is strongly-typed. Each action handels the stat transition immutably. This means that hte state transitions are not modiying the original state, but are returning a new state object using the ___spread operator___.
 
-`Note: The spread operator only does shallow copying and does not handle deeply nested objects. you need to copy each level in the object to ensure immutability. There are libraries that handle deep copying including (lodash)[https://lodash.com/] and (immer)[https://github.com/mweststrate/immer].`
+`Note:.` The spread operator only does shallow copying and does not handle deeply nested objects. you need to copy each level in the object to ensure immutability. There are libraries that handle deep copying including [lodash])[https://lodash.com/) and [immer](https://github.com/mweststrate/immer)
