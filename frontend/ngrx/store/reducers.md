@@ -95,7 +95,7 @@ export class AppModule {}
 
 Registering states with `StoreModule.forRoot()` ensures that the states are defined upon application startup. In general, you register root states that always need to be available to all areas of your application immediately.
 
-## Using the standalone API
+### Using the standalone API
 Registering the root store and state can also be done using the standalone APIs if you are boostrapping an Angular application using standalone features.
 
 `main.ts`
