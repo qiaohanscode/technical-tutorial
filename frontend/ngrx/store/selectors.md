@@ -60,6 +60,7 @@ export interface AppState {
 
 # selector function for selected user
 export const selectUser = (state: AppState) => state.selectedUser;
+
 # selector function for selected books
 export const selectAllBooks = (state: AppState) => state.allBooks;
 
