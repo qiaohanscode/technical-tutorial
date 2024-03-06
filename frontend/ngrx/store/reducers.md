@@ -22,7 +22,7 @@ import { createAction, props } from '@ngrx/store';
 export const homeScore = createAction('[Scoreboard Page] Home Score');
 export const awayScore = createAction('[Scoreboard Page] Away Score');
 export const resetScore = createAction('[Scoreboard Page] Score Reset');
-export const setScores = createAction('[Scoreboard Page] Set Scores', props<{game: Game}>());
+export const setScores = createAction('[Scoreboard Page] Set Scores', props<{game: Game}>()); //should be State as how I understand it
 ```
 Next, create a reducer file that imports the actions and define a shape for the piece of state.
 
