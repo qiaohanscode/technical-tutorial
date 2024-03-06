@@ -20,7 +20,7 @@ export interface AppState {
   feature: FeatureState;
 }
 
-# Function for select FeatureState
+# selector function for select FeatureState
 export const selectFeature = (state: AppState) => state.feature;
 
 # Selector for FeatureState
@@ -58,7 +58,9 @@ export interface AppState {
   allBooks: Book[];
 }
 
+# selector function for selected user
 export const selectUser = (state: AppState) => state.selectedUser;
+# selector function for selected books
 export const selectAllBooks = (state: AppState) => state.allBooks;
 
 export const selectVisibleBooks = createSelector(
