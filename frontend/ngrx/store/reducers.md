@@ -163,5 +163,22 @@ export const routes: Route[] = [
   }
 ];
 ```
+`Note: ` It is recommended to abstract a feature key string to prvent hardcoding strings when registering feature state and calling [createFeatureSelector](https://ngrx.io/api/store/createFeatureSelector). Alternatively, you can use a [Feature Creator](https://ngrx.io/guide/store/feature-creators) which automatically generates seletors for your feature state.
 
+Using Standalone API, register the feature state on application bootstrop:
+
+`main.ts`
+```
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideStore } from '@ngrx/store';
+
+import { AppComponent } from './app.component';
+import { scoreboardFeatureKey, scoreboardReducer } from './reducers/scoreboard.reducer';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideStore({ [scoreboardFeatureKey]: scoreboardReducer }),
+  ]
+});
+```
 
