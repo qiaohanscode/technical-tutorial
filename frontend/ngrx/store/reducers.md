@@ -147,6 +147,7 @@ export const scoreboardFeatureKey = 'game';
 ```
 
 Feature states are registered in the `providers` array of the route config.
+
 `game-routers.ts`
 ```
 import { Route } from '@angular/router';
