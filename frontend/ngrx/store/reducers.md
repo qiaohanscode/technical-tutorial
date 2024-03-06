@@ -139,12 +139,12 @@ This registers your application with an empt y object for the root state.
 }
 ```
 
+Feature states are registered in the `providers` array of the route config lazyly.
+
 `scoreboard.reducer.ts`
 ```
 export const scoreboardFeatureKey = 'game';
 ```
-
-Feature states are registered in the `providers` array of the route config.
 
 `game-routers.ts`
 ```
@@ -164,7 +164,7 @@ export const routes: Route[] = [
 ```
 `Note: `It is recommended to abstract a feature key string to prvent hardcoding strings when registering feature state and calling [createFeatureSelector](https://ngrx.io/api/store/createFeatureSelector). Alternatively, you can use a [Feature Creator](https://ngrx.io/guide/store/feature-creators) which automatically generates seletors for your feature state.
 
-Using Standalone API, register the feature state on application bootstrop eagerly:
+The feature state can also be registered on application bootstrap eagerly:
 
 `main.ts`
 ```
@@ -187,4 +187,5 @@ After the feature is loaded, the `game` key becomes a property in the object and
   game: { home: 0, away: 0 }
 }
 ```
+
 Whether your feature states are loaded eagerly or lazily depends on the needs of your application. You use feature states to build up your state object over time and through different feature areas.
