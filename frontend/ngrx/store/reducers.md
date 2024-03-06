@@ -1,6 +1,7 @@
 ## Reducers
 Reducers in NgRx are responsible for handling transitions from one state to the next state in your application. Reducer functions handle these transitions by determining which ___actions___ to handle based on the action's type.
 
+`Note: ` for more details see [NgRx Reducers](https://ngrx.io/guide/store/reducers).
 ## Introduction
 Reducers are pure functions in that they produce the same output for a given input. They are without side effects and handle each state transition synchronously. Each reducer function takes the latest `Action` dispatched, the current state, and determines whether to return a newly modified state or the original state. This guide shows you how to write reducer functions, register them in your `Store` and compose feature states. 
 
@@ -10,7 +11,7 @@ There are a few consistent parts of every piece of state managed by a reducer,
 - The arguments including the initial state or current state and the current action
 - The functions that handle state changes for their associated action(s).
 
-Bwlow is an example of a set of actions to handle the state of a scoreboard, and the associated reducer function.
+Below is an example of a set of actions to handle the state of a scoreboard, and the associated reducer function.
 
 First, define some actions for interacting with a piece of state,
 
@@ -67,6 +68,13 @@ export const scoreboardReducer = createReducer(
   on(ScoreboardPageActions.setScores, (state, { game }) => ({ home: game.home, away: game.away }))
 );
 ```
-In the wxample above, the reducer is handling 4 actions. Each action is strongly-typed. Each action handels the stat transition immutably. This means that hte state transitions are not modiying the original state, but are returning a new state object using the ___spread operator___.
+In the example above, the reducer is handling 4 actions. Each action is strongly-typed. Each action handels the stat transition immutably. This means that hte state transitions are not modiying the original state, but are returning a new state object using the ___spread operator___.
 
 `Note:.` The spread operator only does shallow copying and does not handle deeply nested objects. you need to copy each level in the object to ensure immutability. There are libraries that handle deep copying including [lodash](https://lodash.com/) and [immer](https://github.com/mweststrate/immer)
+
+when an action is dispatched, all registered reducers receive the actions. Whether they handle te action is determined by the `on` functions that associate one or more actions with a given state change.
+
+
+
+## Registering root state
+The state of yor application is defined as one large object. Registering reducer functions to manage parts of your state only defines keys wth associated values in the object. To register the global `Store` within your application, used the `StoreModule.forRoot()` method with a map of key/value apirs that define your state. The `StoreModule.forRoot()` registers the global providers for your application, including the `Store` service you inject into your components and services to dispatch actions and select pieces of state.
