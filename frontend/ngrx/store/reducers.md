@@ -133,13 +133,11 @@ bootstrapApplication(AppComponent, {
 });
 ```
 
-This registers your application with n empt y object for the root state.
+This registers your application with an empt y object for the root state.
 ```
 {
 }
 ```
-
-Now use the `scoreboard` reducer with a feature `NgModule` named `ScoreboardModule` to register additional state.
 
 `scoreboard.reducer.ts`
 ```
@@ -164,9 +162,9 @@ export const routes: Route[] = [
   }
 ];
 ```
-`Note: ` It is recommended to abstract a feature key string to prvent hardcoding strings when registering feature state and calling [createFeatureSelector](https://ngrx.io/api/store/createFeatureSelector). Alternatively, you can use a [Feature Creator](https://ngrx.io/guide/store/feature-creators) which automatically generates seletors for your feature state.
+`Note: `It is recommended to abstract a feature key string to prvent hardcoding strings when registering feature state and calling [createFeatureSelector](https://ngrx.io/api/store/createFeatureSelector). Alternatively, you can use a [Feature Creator](https://ngrx.io/guide/store/feature-creators) which automatically generates seletors for your feature state.
 
-Using Standalone API, register the feature state on application bootstrop:
+Using Standalone API, register the feature state on application bootstrop eagerly:
 
 `main.ts`
 ```
