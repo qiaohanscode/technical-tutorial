@@ -97,6 +97,7 @@ Registering states with `StoreModule.forRoot()` ensures that the states are defi
 
 ## Using the standalone API
 Registering the root store and state can also be done using the standalone APIs if you are boostrapping an Angular application using standalone features.
+
 `main.ts`
 ```import { bootstrapApplication } from '@angular/platform-browser';
 import { provideStore, provideState } from '@ngrx/store';
@@ -111,3 +112,56 @@ bootstrapApplication(AppComponent, {
   ],
 });
 ```
+
+## Registering feature state
+Feature states behave in the same way root states do, but allow you to define them with spedific feature areas in your application. Your state is one large object, and feature states register additional keys and values in that object.
+
+The follwoing example shows how a feature state allows your state to be built up incrementally. Let''s start with an empty state object.
+`Note: ` this tutorial describes the approch for standalone API. For module based application see [NgRx Reducer Registering feature State](https://ngrx.io/guide/store/reducers#registering-feature-state).
+
+`main.ts`
+```
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideStore } from '@ngrx/store';
+
+import { AppComponent } from './app.component';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideStore()
+  ],
+});
+```
+
+This registers your application with n empt y object for the root state.
+```
+{
+}
+```
+
+Now use the `scoreboard` reducer with a feature `NgModule` named `ScoreboardModule` to register additional state.
+
+`scoreboard.reducer.ts`
+```
+export const scoreboardFeatureKey = 'game';
+```
+
+Feature states are registered in the `providers` array of the route config.
+`game-routers.ts`
+```
+import { Route } from '@angular/router';
+import { provideState } from '@ngrx/store';
+
+import { scoreboardFeatureKey, scoreboardReducer } from './reducers/scoreboard.reducer';
+
+export const routes: Route[] = [
+  {
+    path: 'scoreboard',
+    providers: [
+      provideState({ name: scoreboardFeatureKey, reducer: scoreboardReducer })
+    ]
+  }
+];
+```
+
+
