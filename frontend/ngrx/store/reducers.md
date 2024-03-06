@@ -77,4 +77,37 @@ when an action is dispatched, all registered reducers receive the actions. Wheth
 
 
 ## Registering root state
-The state of yor application is defined as one large object. Registering reducer functions to manage parts of your state only defines keys wth associated values in the object. To register the global `Store` within your application, used the `StoreModule.forRoot()` method with a map of key/value apirs that define your state. The `StoreModule.forRoot()` registers the global providers for your application, including the `Store` service you inject into your components and services to dispatch actions and select pieces of state.
+The state of yor application is defined as one large object. Registering reducer functions to manage parts of your state only defines keys with associated values in the object. To register the global `Store` within your application, used the `StoreModule.forRoot()` method with a map of key/value pairs that define your state. The `StoreModule.forRoot()` registers the global providers for your application, including the `Store` service you inject into your components and services to dispatch actions and select pieces of state.
+
+`app.modules.ts`
+```
+import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
+import { scoreboardReducer } from './reducers/scoreboard.reducer';
+
+@NgModule({
+  imports: [
+    StoreModule.forRoot({ game: scoreboardReducer })
+  ],
+})
+export class AppModule {}
+```
+
+Registering states with `StoreModule.forRoot()` ensures that the states are defined upon application startup. In general, you register root states that always need to be available to all areas of your application immediately.
+
+## Using the standalone API
+Registering the root store and state can also be done using the standalone APIs if you are boostrapping an Angular application using standalone features.
+`main.ts`
+```import { bootstrapApplication } from '@angular/platform-browser';
+import { provideStore, provideState } from '@ngrx/store';
+
+import { AppComponent } from './app.component';
+import { scoreboardReducer } from './reducers/scoreboard.reducer';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideStore(),
+    provideState({ name: 'game', reducer: scoreboardReducer })
+  ],
+});
+```
