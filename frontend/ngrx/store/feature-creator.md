@@ -99,7 +99,21 @@ export const routes: Route[] = [
 ## Restrictions
 The `createFeature` function cannot be used for features whose state contains optional properties. In other words, all state properties have to be passed to the initial state object. 
 
-So, if the state contains optional properties, each optional symbol (?) have to be replaced with `| null` or `| undefined`.
+So, if the state contains optional properties, 
+
+`main.ts`
+```
+interface State {
+  books: Book[];
+  activeBookId?: string;
+}
+
+const initialState: State = {
+  books: [],
+};
+```
+
+Each optional symbol (?) have to be replaced with `| null` or `| undefined`.
 
 `books.reducer.ts`
 ```
