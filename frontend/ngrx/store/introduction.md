@@ -1,0 +1,1 @@
+NgRx Store provides a global state management through the use of single state and actions to express state changes. The managed state is application-wide available. For local state management use [NgRx ComponentStore](https://ngrx.io/guide/component-store).
