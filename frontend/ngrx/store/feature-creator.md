@@ -58,4 +58,60 @@ export const selectBookListPageViewModel = createSelector(
   (books, loading) => ({books, loading})
 );
 ```
-  
+
+## Feature Registration
+Registerung the feature can be done using the standaloe APIs. For registeration for module based application see [NgRx Feature Registration](https://ngrx.io/guide/store/feature-creators#feature-registration).
+
+`main.ts`
+```
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideStore, provideState } from '@ngrx/store';
+
+import { AppComponent } from './app.component';
+import { booksFeature } from './books.reducer';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideStore(),
+    provideState(booksFeature)
+  ],
+});
+```
+
+Feature states can slso be registered in the `providers` array of the route config.
+`books-routes.ts`
+```
+import { Route } from '@angular/router';
+import { provideState } from '@ngrx/store';
+
+import { booksFeature } from './books.reducer';
+
+export const routes: Route[] = [
+  {
+    path: 'books',
+    providers: [
+      provideState(booksFeature)
+    ]
+  }
+];
+```
+
+## Restrictions
+The `createFeature` function cannot be used for features whose state contains optional properties. In other words, all state properties have to be passed to the initial state object. 
+
+So, if the state contains optional properties, each optional symbol (?) have to be replaced with `| null` or `| undefined`.
+
+`books.reducer.ts`
+```
+interface State {
+  books: Book[];
+  activeBookId: string | null;
+  // or activeBookId: string | undefined;
+}
+
+const initialState: State = {
+  books: [],
+  activeBookId: null,
+  // or activeBookId: undefined,
+};
+```
