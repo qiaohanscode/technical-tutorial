@@ -7,3 +7,55 @@ the feature name, feature reducer, and selectors for the particular feature stat
 
 ## Using feature creator
 The createFeature function reduces repetitive code in selector files by generating a feature selector and child selectors for each feature state property. It accepts an object containing a feature name and a feature reducer as the input argument:
+
+`books.reducer.ts`
+```
+import { createFeature, createReducer, on } from '@ngrx/store';
+import { Book } from './book.model';
+
+import * as BookListPageActions from './book-list-page.actions';
+import * as BooksApiActions from './books-api.actions';
+
+interface State {
+  books: Book[];
+loading: boolean;
+
+inst initialState: State = {
+  books: [],
+  loading: false
+};  
+
+export const booksFeature = createFeature({
+  name: 'books',
+  reducer: createReducer(
+    initialState,
+    on(BookListPageActions.enter, (state) => ({
+      ...state,
+      loading: true
+    }))
+  )
+});
+
+export const {
+  name, // feature name
+  reducer, // feature reducer
+  selectBooksState, // feature selector
+  selectBooks, // selector for books property
+  selectLoading, // selector for loading property
+} = beeoksFeature;
+```
+
+An object created with the `createFeature` function contains a feature name, a feature reducer, a feature selector, and a selector for each feature state property. All generated selectors have the "select" prefix, and the feature selector has the "State" suffix. In the examle abouve, the name of the feature seletor is selectBooksState, the names of the child selectors are `selectBooks` and `selectLoading`.
+
+The generated selectors can be used to create other selectors:
+```
+import {createSelector} from '@ngrx/store';
+import { booksFeature } from './books.reducer';
+
+export const selectBookListPageViewModel = createSelector(
+  booksFeature.selectBooks,
+  booksFeature.selectLoading,
+  (books, loading) => ({books, loading})
+);
+```
+  
