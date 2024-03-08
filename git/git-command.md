@@ -125,3 +125,10 @@ fetch and remove any remote-tracking references that no longer exist on the remo
 ```
 git fetch --all --prune
 ```
+
+
+use another Github account for one repository
+```
+git config --local user.name qiaohanscode
+git config --local user.email timhanq@hotmail.com
+```
