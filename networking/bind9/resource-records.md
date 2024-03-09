@@ -15,18 +15,18 @@ Resource Records have two representations. A textual format described in this ch
 
 The textual format has the following generic form:
 ```
-owner-name [ttl] [class] type type-specific-data
+owner-name [TTL] [class] [RR type] [RDATA]
 or
-owner-name [class] [ttl] type type-specific-data
+owner-name [class] [TTL] [RR type] [RDATA]
 ```
 where:
 
 Column|Description
 ---|---
 owner-name | The owner-name (or label) of the node in thhe zone file to which this record belongs. The owner-name field may also take one of the following values: `@ ; replace with the current value of $ORIGIN` or ` ; blank/space or tab in which case the last owner-name will be used`.
-ttl | 32 bit value, a decimal integer, optional. __The Time to Live__ in seconds (range is 1 to 2137383647) and indicates how long the RR may be cached. The value zero indicates the data should not be cached.
+TTL | 32 bit value, a decimal integer, optional. __The Time to Live__ in seconds (range is 1 to 2137383647) and indicates how long the RR may be cached. The value zero indicates the data should not be cached.
 class | A 16 bit value which defines the protocol family or an instance of the protocol, optional. The normal value is __IN__ = __Internet protocol__
-__types__ | The resource record type which determines the value(s) of the ___type-specific-dta___ field.
+__RR type__ | The resource record type which determines the value(s) of the ___type-specific-dta___ field. The complete list of RR types can be found [IANA
 type-specific-data| Data content of each record is defined by the ___type___ and ___class___ values.
 
 Omited ___class___ and ___ttl___ values are default to the last explicitly stated values.
@@ -39,7 +39,7 @@ RR | Value   | RFC                                                          | De
 A | 1       | [RFC 1035](https://www.iana.org/go/rfc1035) | IPv4 Address record. An IPv5 address for a host
 AAAA | 28 | [RFC 3596](https://www.iana.org/go/rfc3596) | IPv6 Adress record for a host
 CNAME | 5 | [RFC 1035](https://www.iana.org/go/rfc1035) | Canonical Name. An alias name for a host. Causes redirection for a single RR at the owner-name.
-DNAME | 39 | [RFC 6672](https://www.iana.org/go/rfc6672) | Redirection in DNS. Like CNAME but provides redirection for a subtree of the domain name tree in the DNS. That is, all names that end with a particular suffix are redirected to another parf of the DNS. ```frobozz.example.net.  DNAME    frobozz-division.acme.example.com.``
+DNAME | 39 | [RFC 6672](https://www.iana.org/go/rfc6672) | Redirection in DNS. Like CNAME but provides redirection for a subtree of the domain name tree in the DNS. That is, all names that end with a particular suffix are redirected to another parf of the DNS. <br>`frobozz.example.net.  DNAME    frobozz-division.acme.example.com.`
 NS | 2 | [RFC 1035](https://www.iana.org/go/rfc1035)| Name Server. Defines the authoritative names server(s) for the domain (defined by the SOA record) or the subdomain.
 PTR| 12| [RFC 1035](https://www.iana.org/go/rfc1035)| IP address (IPv4 or IPv6) to host. Unsed in reverse maps.
 SOA|6|[RFC 1035](https://www.iana.org/go/rfc1035)| Start of Authority. Defines the zone name, an e-mail contact and various time and refresh values applicable to the zone.
