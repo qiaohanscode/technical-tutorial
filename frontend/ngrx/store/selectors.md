@@ -76,3 +76,7 @@ export const selectVisibleBooks = createSelector(
   }
 );
 ```
+
+## Selecting Feature States
+The ___createFeatureSelector___ is a convenience method for returning a top level feature state. It returns a typed 
+selector function for a feature slice of state.
