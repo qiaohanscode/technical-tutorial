@@ -1,4 +1,6 @@
 ## Introduction to DNS and BIND 9
+This Tutorial bases on the official documentation [BIND 9 Administrator Reference Manual](https://bind9.readthedocs.io/en/latest/#)
+
 The Internet `Domain Name System (DNS)` consists of:
 1. the syntax to specify the names of entities in the Internet in a hierarchical manner
 2. the rules used for delegating authority over names and

@@ -7,7 +7,7 @@ BIND 9 uses a single configuration file called `named.conf` which is located in 
 The  `named.conf` provides a basic logging service and may be extended as required.
 
 ### Zone file
-Zone files consist of [Resource Records](resource-records.md), which describe the zone's characteristics or properties.
+Zone files consist of [Resource Records](3.2-resource-records), which describe the zone's characteristics or properties.
 
 ### localhost Zone File
 All end-user systems are shipped with a `host` file (usually located in /etc). This file is normally configured to map the name __localhost__ to the loopback address. It is argued, reasonably, that a forward-mapped zone file for __localhost__ is therefore not strictly required. 
@@ -142,7 +142,7 @@ zone "254.168.192.in-addr.arpa" {
 ```
 
 ## Loading Balancing
-A primitive form of loading balancing can be achieved in the DNS b using multiple resource records in a zone file (such as multiple A records) for one name
+A primitive form of loading balancing can be achieved in the DNS by using multiple resource records in a zone file (such as multiple A records) for one name
 
 name|TTL|CLASS|TYPE|Resource Record Data
 ---|---|---|---|---
