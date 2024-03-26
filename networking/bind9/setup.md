@@ -54,14 +54,14 @@ Next important configuration file is "/etc/bind/named.conf.local", in this file 
 - reverse lookup zone file
 
 ```
-zone "fritz.box" IN {
+zone "ponyworld.io" IN {
         type master;
-        file "/etc/bind/forward.fritz.box";
+        file "/etc/bind/forward.ponyworld.io";
         allow-update { none; }
 };
-zone "0.168.192.in-addr.arpa" IN {
+zone "178.168.192.in-addr.arpa" IN {
         type master;
-        file "/etc/bind/reverse.fritz.box";
+        file "/etc/bind/reverse.ponyworld.io";
         allow-update { none; };
 };
 ```
@@ -71,14 +71,14 @@ Now create the forward lookup zone file. Sample zone files (db.local) are alread
 ; BIND data file for local loopback interface
 ;
 $TTL    604800
-@       IN      SOA     primary.fritz.box. root.primary.fritz.box. (
+@       IN      SOA     ponyworld.io. root.ponyworld.io. (
                               2         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 ;Name Server Information
-@       IN      NS      primary.fritz.box.
+@       IN      NS      primary.ponyworld.io.
 
 ;IP address of Domain Name Server (DNS)
 primary IN A 192.168.178.48
@@ -95,22 +95,22 @@ Next create a reverse lookup zoe file, sample reverse lookup zone file is presen
 ; BIND reverse data file for local loopback interface
 ;
 $TTL    604800
-@       IN      SOA     fritz.box. root.fritz.box. (
+@       IN      SOA     ponyworld.io. root.ponyworld.io. (
                               1         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 ;Your Name Server Info
-@       IN      NS      primary.fritz.box.
+@       IN      NS      primary.ponyworld.io.
 primary IN A 192.168.178.48
 
 ;Reverse Lookup for Your DNS Server
-42 IN PTR primary.fritz.box
+42 IN PTR primary.ponyworld.io
 ;PTR Record IN address to HostName
-44 IN PTR ekl-k8s-master-1.fritz.box
-47 IN PTR ekl-k8s-worker-1.fritz.box
-46 IN PTR ekl-k8s-worker-2.fritz.box
+44 IN PTR ekl-k8s-master-1.ponyworld.io
+47 IN PTR ekl-k8s-worker-1.ponyworld.io
+46 IN PTR ekl-k8s-worker-2.ponyworld.io
 ```
 
 Update the following parameter in "/etc/default/named" file, so that dns service starts listening on IPv4

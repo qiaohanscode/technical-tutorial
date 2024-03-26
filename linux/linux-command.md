@@ -36,3 +36,28 @@ sudo usermod -a -G vboxsf tim
 ssh-keygen -R <hostname>
 ```
 
+#### SCP
+copy a directory from remote server
+```
+scp -r tim@192.168.178.48:/etc/bind/ config/
+```
+
+copy a single file from remote server
+```
+scp tim@192.168.179.48:/etc/bind/named.conf config/
+```
+
+#### Get release of current OS
+```
+cat /etc/os-release
+```
+
+#### Set hostname f
+```
+sudo hostnamectl hostname primary.ponyworld.io
+```
+
+#### Show hostmane
+```
+hostnamectl hostname
+```
