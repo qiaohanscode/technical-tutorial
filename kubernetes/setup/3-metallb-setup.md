@@ -17,8 +17,9 @@ apiVersion: kubeproxy.config.k8s.io/v1alpha1
 kind: KubeProxyConfiguration
 mode: "ipvs"
 ipvs:
-strictARP: true
+  strictARP: true
 ```
+`Note: ` the command above will open the yaml file with the default editor (vi by ubuntu)
 
 ### Installation by Manifest
 To install MetallLB apply the manifest:

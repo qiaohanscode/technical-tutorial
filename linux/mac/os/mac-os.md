@@ -28,5 +28,10 @@ Ctrl+u
 Ctrl+k
 ```
 
+### find free disk space
+```
+df -h -c
+```
+
 
 

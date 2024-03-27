@@ -61,3 +61,8 @@ sudo hostnamectl hostname primary.ponyworld.io
 ```
 hostnamectl hostname
 ```
+
+#### read free disk space
+```
+df -h --total
+```
