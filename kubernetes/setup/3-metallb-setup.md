@@ -69,7 +69,7 @@ spec:
 ```
 Save the Layer 2 configuration to metallb-l2-range-allocation.yaml and apply
 ```
-kubectl apply -f metallb-l2.range-allocation.yaml
+kubectl apply -f metallb-l2-range-allocation.yaml
 ```
 
 ### Appendix A -- Useful links

@@ -52,7 +52,7 @@ scp tim@192.168.179.48:/etc/bind/named.conf config/
 cat /etc/os-release
 ```
 
-#### Set hostname f
+#### Set hostname
 ```
 sudo hostnamectl hostname primary.ponyworld.io
 ```

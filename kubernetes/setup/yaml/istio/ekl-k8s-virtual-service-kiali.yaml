@@ -5,7 +5,7 @@ metadata:
   namespace: istio-system
 spec:
   hosts:
-    - kiali.ekl-k8s.srv
+    - kiali.ponyworld.io
   gateways:
     - ekl-k8s-gateway
   http:

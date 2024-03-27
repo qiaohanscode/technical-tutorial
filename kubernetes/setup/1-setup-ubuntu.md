@@ -1,9 +1,9 @@
 ### OS: Ubuntun 22.04, Kubernetes v1.29
 ### Step 1 Set hostname on master and worker nodes
 ```
-sudo hostnamectl hostname ekl-k8s-master-1.fritz.box
-sudo hostnamectl hostname ekl-k8s-worker-1.fritz.box
-sudo hostnamectl hostname ekl-k8s-worker-2.fritz.box
+sudo hostnamectl hostname ekl-k8s-master-1.ponyworld.io
+sudo hostnamectl hostname ekl-k8s-worker-1.ponyworld.io
+sudo hostnamectl hostname ekl-k8s-worker-2.ponyworld.io
 ```
 
 ### Step 1 Disable swap & Add kernel parameters. 
@@ -112,7 +112,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ### Step 5 Install Kubernetes Cluster
 Run following kubeadm on the master node
 ```
-sudo kubeadm init --control-plane-endpoint=ekl-k8s-master-1.fritz.box 
+sudo kubeadm init --control-plane-endpoint=ekl-k8s-master-1.ponyworld.io 
 # ? --pod-network-cidr=192.168.0.0/16
 ```
 
@@ -150,7 +150,7 @@ watch kubectl get pods -n calico-system
 - Install directly with Manifest
 ```
 #Download the Calico networking manifest for the Kubernetes API datastore
-curl https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/calico.yaml -O
+curl https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/manifests/calico.yaml -O
 
 #Apply the manifest using the following command.
 kubectl apply -f calico.yaml
@@ -167,13 +167,30 @@ kubectl get nodes
 ### Step 7 Join worker nodes to the cluster
 On each worker node, use kubeadm join command to add worker node
 ```
-sudo kubeadm join ekl-k8s-master-node:6443 --token <token> \
+sudo kubeadm join ekl-k8s-master-1.ponyworld.io:6443 --token <token> \
 --discovery-token-ca-cert-hash sha256:<token-hash>
 
 # Check the nodes status from master node using kubectl command
 kubectl get nodes
 ```
+`Note:` The generated token is expired after 24 hours. To generate a new token with following command,
+```
+//list the current token which has been generated with "kubeadm init"
+kubeadm token list
 
+//create a new token
+kubeadm token create
+```
+
+`Note:` The token ___discovery-token-ca-cert-hash___ can be read with following command,
+```
+openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
+  openssl dgst -sha256 -hex | sed 's/^.* //' 
+```
+`Note:` If the worker node has ever been added, reset the worker node firstly with
+```
+sudo kubeadm reset
+``` 
 #### Step 8 Test your kubernetes cluster installation
 Try to deploy nginx based application and try to access it
 ```
@@ -209,10 +226,10 @@ for pkg containerd runc; do sudo apt remove $pkg; done
 #### Delete a worker node
 ```
 # safely evict pods of the node
-kubectl drain --ignore-daemonsets ekl-k8s-worker-1.fritz.box
+kubectl drain --ignore-daemonsets ekl-k8s-worker-1.ponyworld.io
 
 # delete the node
-kubectl delete node ekl-k8s-worker-1.fritz.box
+kubectl delete node ekl-k8s-worker-1.ponyworld.io
 ```
 #### Links
 `How to Install Kubernetes Cluster on Ubuntu 22.04` </br>

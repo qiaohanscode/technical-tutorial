@@ -98,7 +98,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: mongodb-secret
-type: Opaque //general key value pair
+type: Opaqu’e //general key value pair
 data:
   db-user-name: $BASE64_CODED_USERNAME
 ```

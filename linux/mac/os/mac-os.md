@@ -19,6 +19,14 @@ brew install node
 brew install git
 ```
 
+### Delete from terminal
+```
+//delete from cursor to begin of the line
+Ctrl+u
+
+//delete from cursor to end of the line
+Ctrl+k
+```
 
 
 

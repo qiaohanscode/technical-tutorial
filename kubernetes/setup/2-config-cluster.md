@@ -30,7 +30,7 @@ spec:
 
 substitute placeholder with CSR
 ```
-sed -i -e "s/^ *request: USER_CSR/    request: $(cat ekl-k8s-dev-edit-qiao-han.csr|base64|tr -d "\n")" \
+sed -i -e "s/^ *request: USER_CSR/  request: $(cat ekl-k8s-dev-edit-qiao-han.csr|base64|tr -d "\n")/g" \
 ekl-k8s-dev-edit-qiao-han-csr.yaml
 ```
 
@@ -95,8 +95,8 @@ tr -d "\n" | base64 -d > ~/Han/workspace-k8s/cert/cert-ca/cert-ca.crt
 
 2. set cluster details
 ```
-kubectl config --kubeconfig=~/.kube/ekl-k8s-dev-edit/config set-cluster ekl-k8s-dev \
---server=https://ekl-k8s-master-1.fritz.box:6443 \
+kubectl config --kubeconfig=/Users/yiyuma/.kube/ekl-k8s-dev-edit/config set-cluster ekl-k8s-dev \
+--server=https://ekl-k8s-master-1.ponyworld.io:6443 \
 --certificate-authority=/Users/yiyuma/Han/workspace-k8s/cert/cert-ca/cert-ca.crt \
 --embed-certs
 ```
@@ -114,14 +114,14 @@ kubectl config --kubeconfig=config set-credentials qiao-han \
 
 #### step 4.3 add context details
 ```
-kubectl config --kubeconfig=~/.kube/ekl-k8s-dev-edit/config \
+kubectl config --kubeconfig=/Users/yiyuma/.kube/ekl-k8s-dev-edit/config \
 set-context ekl-k8s-dev-edit --cluster=ekl-k8s-dev --namespace=ekl-k8s-dev \
 --user=qiao-han
 ```
 
 #### step 4.4 set current context
 ```
-kubectl config --kubeconfig=.kube/ekl-k8s-dev-edit use-context ekl-k8s-dev-edit
+kubectl config --kubeconfig=/Users/yiyuman/.kube/ekl-k8s-dev-edit/config use-context ekl-k8s-dev-edit
 ```
 
 ### step 5 set KUBECONFIG
