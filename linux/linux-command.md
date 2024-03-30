@@ -46,6 +46,10 @@ copy a single file from remote server
 ```
 scp tim@192.168.179.48:/etc/bind/named.conf config/
 ```
+copy a directory to remote server
+```
+scp ./workspaces-k8s/ tim@ekl-jenkins.ponyworld:/home/tim/
+```
 
 #### Get release of current OS
 ```

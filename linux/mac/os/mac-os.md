@@ -33,5 +33,12 @@ Ctrl+k
 df -h -c
 ```
 
+### find installation path of java
+```
+which -a java
+or
+whereis java
+```
+
 
 

@@ -11,6 +11,50 @@
   ```
   brew doctor
   ```
+  
+### Update brew installed applications
+```
+//update brew repository
+brew update
+
+//install update for applications which have been installed with brew
+brew upgrade
+```
+
+### Install JDK
+```
+//search available package of jdk
+brew search jdk
+
+//find information about jdk 17
+brew info openjdk@17
+
+//install openjdk 17
+brew install openjdk@17
+
+// For the system Java wrappers to find this JDK, symlink it with
+sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk \
+/Library/Java/JavaVirtualMachines/openjdk-17.jdk
+
+//If you need to have openjdk@17 first in your PATH, run:
+echo 'export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc
+
+//add JAVA_HOME to .zprofile
+echo 'export JAVA_HOME=/opt/homebrew/opt/openjdk@17/bin' >> ~/.zprofile
+```
+
+### Install Maven
+```
+//download and unzip maven binary
+tar -xvf $MAVEN_BINARY_FILE $TARGET_DIR
+
+//add maven installation path to ~/.zprofile
+echo "export JAVA_HOME=/opt/homebrew/Cellar/openjdk@17/17.0.10/libexec/openjdk.jdk/Contents/Home" >> ~/.zprofile
+
+//activate the change
+source ~/.zprofile
+```
+
 ### After a macOS upgrade
 After a macOS upgrade, the upgrade process may remove the Command Line Tools. You may encounter an error like
 

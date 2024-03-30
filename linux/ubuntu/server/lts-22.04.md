@@ -31,3 +31,13 @@ sudo apt update
 
 //sudo apt full-upgrade
 ```
+
+### find the installation directory of java
+```
+whereis java
+```
+
+### find core counts of cpu
+```
+cat /proc/cpuinfo
+```
