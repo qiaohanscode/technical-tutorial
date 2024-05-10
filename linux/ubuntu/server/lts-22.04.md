@@ -41,3 +41,12 @@ whereis java
 ```
 cat /proc/cpuinfo
 ```
+
+### change timezone
+```
+//list available timezones
+timedatectl list-timezones
+
+//change timezone to Europe/Berlin
+timedatectl set-timezone Europe/Berlin
+```
