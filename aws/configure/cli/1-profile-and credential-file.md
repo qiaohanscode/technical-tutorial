@@ -24,11 +24,66 @@ Depending on the file, profile section names use the following format:
 
 `Note:` Do not use the word `profile` when creating an entry in the `credentials` file. 
 
+### Short-term credentils
+This example is for the short-term credentials from __AWS Identity and Access Management__. For more information, 
+see [Authenticate with short-term credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-authentication-short-term.html)
+
+#### Credentials file
+```
+[default]
+aws_access_key_id=ASIAIOSFODNN7EXAMPLE
+aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
+[user1]
+aws_access_key_id=ASIAI44QH8DHBEXAMPLE
+aws_secret_access_key=je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY
+```
+
+#### Config file
+```
+[default]
+region=us-west-2
+output=json
+
+[profile user1]
+region=us-east-1
+output=text
+```
+`Note: ` to let another `IAM Role ARN` to obtain the permissions attached to this credentials, use the following command,
+```
+aws --profile dev-int-ekl-dev eks update-kubeconfig --name ekl-k8s-dev-int --kubeconfig ./kube/config --role-arn arn:aws:iam::327067921706:role/developer-ekl-k8s-dev-int
+```
+
 #### IAM role
 This example is for assuming an __IAM__ role. Profiles that use __IAM__ roles pull credentials from another profile and 
 then apply __IAM__ role permissions. In the following examples, `default` is the source profile for credentials and `user1`
 borrows the same credentials then assumes a new roe. For more information, 
 see [Use an IAM role in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
+
+`Note:` the permissions available for the `IAM Role ARN`
+ will be determined by permissions which are assigned to the credentials of `default`. 
+
+For the following example, the source profile uses `short-term` credentials stored in `credentials` file.
+#### credentials file
+```
+[default]
+aws_access_key_id=ASIAIOSFODNN7EXAMPLE
+aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+aws_session_token = IQoJb3JpZ2luX2IQoJb3JpZ2luX2IQoJb3JpZ2luX2IQoJb3JpZ2luX2IQoJb3JpZVERYLONGSTRINGEXAMPLE
+```
+#### Config file
+```
+[default]
+region=us-west-2
+output=json
+
+[profile user1]
+role_arn=arn:aws:iam::777788889999:role/user1role
+source_profile=default
+role_session_name=sesseion_user1
+region=us-east-1
+output=text
+```
 
 #### Long-term credentials
 `Note:` to avoid security risks, don't use __IAM__ users for authentication when developing purpose-built software or 
@@ -91,7 +146,7 @@ export AWS_PROFILE=user1
 ### aws configure
 Run this commnd to quicky set and view your credentials, Region and output format.
 ```
-$ aws configure --profile dev-int
+$ aws --profile dev-int configure 
 AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
 AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region name [None]: us-west-2
@@ -101,7 +156,8 @@ Default output format [None]: json
 ### aws configure set
 Set any credentials or configuration settings using `aws configure set`.
 ```
-aws configure set region us-west-2 --profile dev-int
+aws --profile dev-int configure set output json
+aws --profile dev-int configure set region us-west-2
 ```
 
 ### aws configure get 
