@@ -21,7 +21,29 @@ brew update
 brew upgrade
 ```
 
-### Install JDK
+### Install Openjdk@21
+```
+//search available package of jdk
+brew search jdk
+
+//find information about jdk 21
+brew info openjdk@21
+
+//install openjdk 21
+brew install openjdk@21
+
+// For the system Java wrappers to find this JDK, symlink it with
+sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk \
+/Library/Java/JavaVirtualMachines/openjdk.jdk
+
+//If you need to have openjdk@21 first in your PATH, run:
+echo 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"' >> ~/.zshrc
+
+//add JAVA_HOME to .zprofile
+echo 'export JAVA_HOME=/opt/homebrew/opt/openjdk/bin' >> ~/.zprofile
+```
+
+### Install Openjdk@17
 ```
 //search available package of jdk
 brew search jdk
