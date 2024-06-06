@@ -23,7 +23,7 @@ metadata:
 spec:
   request: USER_CSR
   signerName: kubernetes.io/kube-apiserver-client
-  expirationSeconds: 86400
+  expirationSeconds: 31536000
   usages:
   - client auth
 ```

@@ -15,3 +15,8 @@ tag as parameter only removes the tag. If the tag is the only one for the image,
 
 ### Options
 - -f, --force: force removal of the image
+
+### Delete All images from local registry
+```
+docker rmi $(docker images -q) -f
+```
