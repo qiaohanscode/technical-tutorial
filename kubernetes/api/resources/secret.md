@@ -29,3 +29,9 @@ kubectl create secret generic --help
 kubectl create secret --help
 kubectl create --help
 ```
+
+#### Read Secret 
+```
+kubectl get secret ekl-backend-ws-dev \
+-o jsonpath='{.data.EKL_BACKEND_DB_USER}'|base64 -d
+```
