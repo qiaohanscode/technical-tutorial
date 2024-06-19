@@ -40,5 +40,10 @@ or
 whereis java
 ```
 
+### sed with environment variable
+```
+sed -i -e "s|{{IMAGE_TAG}}|$IMAGE_TAG|g" kustomization.yaml
+```
+
 
 
