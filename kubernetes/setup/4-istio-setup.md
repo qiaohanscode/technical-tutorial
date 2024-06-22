@@ -71,6 +71,11 @@ curl -v http://kiali.ponyworld.io
 ```
 `Note: ` the application kiali is also available under web browser
 
+### Create ClusterRole ekl-k8s-istio-edit
+```
+kubectl apply -f ekl-k8s-istio-edit-clusterrole.yaml
+```
+
 ### Uninstall Istio
 ```
 istioctl uninstall --purge

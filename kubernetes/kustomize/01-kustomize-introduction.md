@@ -154,3 +154,5 @@ A complete list of build-in fields of `kustomize` can be found [Kustomize Featur
 https://github.com/kubernetes-sigs/kustomize
 
 https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/
+
+[Kustomize — Kubernetes native configuration management](https://subbaramireddyk.medium.com/kustomize-kubernetes-native-configuration-management-f51630d29ac0)
