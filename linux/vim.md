@@ -3,7 +3,7 @@ https://www.howtoforge.com/tutorial/how-to-use-markers-and-perform-text-selectio
 
 ### marks words
 using `v` (`shift+v`) to switch to the visual mode, then arks the words with narrow keys.
-press `d` to after select and the selected text will be cut/deleted
+press `d` to select and the selected text will be cut/deleted
 
 ### paste text
 using `p` to paste after the cursor

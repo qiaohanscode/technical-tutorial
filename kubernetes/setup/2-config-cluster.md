@@ -55,7 +55,7 @@ kubectl get csr ekl-k8s-dev-edit-qiao-han-csr -o jsonpath='{.status.certificate}
 > workspace-k8s/cert/ekl-k8s-dev-edit/ekl-k8s-dev-edit-qiao-han.crt
 ```
 
-#### step 3 Create RoleBinding
+#### step 3 Create RoleBinding ekl-k8s-dev-edit
 - Option 1 -- create with `kubectl`
 ```
 kubectl create rolebinding ekl-k8s-dev-edit --clusterrole=edit --group=ekl-k8s-dev-edit --namespace=ekl-k8s-dev
