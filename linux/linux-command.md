@@ -70,3 +70,8 @@ hostnamectl hostname
 ```
 df -h --total
 ```
+
+#### Find Listening Ports
+```
+netstat -tulpn|grep LISTEN 
+```

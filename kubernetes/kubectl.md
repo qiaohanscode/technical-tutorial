@@ -1,6 +1,6 @@
 open an interactive terminal im pod, the option -i means "Pass stdin to the container", the option -t means "Stdin is a TTY"
 ```
-kubectl exec amas-backend-prod-deployment-5757449dff-7852t -i -t -- bash -il
+kubectl exec amas-backend-prod-deployment-5757449dff-7852t -it -- /bin/bash -il
 ```
 
 delete a pod forcely
@@ -40,6 +40,10 @@ kubectl get deployment -A
 
 # show pods with more details and watch for change
 kubectl get pod -A -o wide --watch
+
+# show value of secret
+kubectl get secret ekl-backend-ws-dev \
+-o=jsonpath='{.data.EKL_BACKEND_WS_KEYSTORE_PASSWORD}'
 
 # a list of global command-line options (applies to all commands)
 kubectl options

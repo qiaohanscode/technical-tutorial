@@ -15,7 +15,7 @@ Step 2 -- create YAML
 ```
 kubectl create secret generic ekl-backend-ws-dev \
 --from-env-file=secret-ekl-backend-ws-dev.properties \
---type=Opague --dry-run=client -o yaml > secret-ekl-backend-ws-dev.yaml
+--type=Opaque --dry-run=client -o yaml > secret-ekl-backend-ws-dev.yaml
 ```
 
 Step 3- apply YAML
