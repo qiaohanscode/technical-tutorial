@@ -86,16 +86,3 @@ kubectl delete namespace istio-system
 
 ### Appendix A -- useful links
 - Istio -- https://istio.io/latest/
-
-
-
-tls:
-- match:
-- port: 443
-sniHosts:
-- ekl-backend-ws-dev.ponyworld.io
-route:
-- destination:
-host: ekl-backend-ws-dev.ekl-k8s-dev.svc.cluster.local
-port:
-number: 8443
