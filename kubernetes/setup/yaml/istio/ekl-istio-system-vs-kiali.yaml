@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: ekl-istio-system-virtualservice-kiali
+  name: ekl-istio-system-kiali
   namespace: ekl-istio-system
 spec:
   hosts:
