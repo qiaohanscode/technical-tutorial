@@ -58,31 +58,20 @@ kubectl get csr ekl-k8s-dev-edit-qiao-han-csr -o jsonpath='{.status.certificate}
 #### step 3 Create RoleBinding ekl-k8s-dev-edit
 - Option 1 -- create with `kubectl`
 ```
-kubectl create rolebinding ekl-k8s-dev-edit --clusterrole=edit --group=ekl-k8s-dev-edit --namespace=ekl-k8s-dev
+kubectl create rolebinding ekl-dev-k8s-edit --clusterrole=edit --group=ekl-k8s-dev-edit --namespace=ekl-dev
 ```
 
 - Option 2 -- create with yaml
 ```
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: ekl-k8s-dev-edit
-  namespace: ekl-k8s-dev
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: edit
-subjects:
-- apiGroup: rbac.authorization.k8s.io
-  kind: Group
-  name: ekl-k8s-dev-edit
+kubectl apply -f ekl-dev-k8s-edit-rolebinding.yaml
 ```
 
 #### step 4 create kubeconfig file
 create the file ~/.kube/ekl-k8s-dev-edit/config
 
 ```
-kubectl config --kubeconfig=~/.kube/ekl-k8s-dev-edit/config set-cluster ekl-k8s-dev
+kubectl config --kubeconfig=~/.kube/ekl-k8s-dev-edit/config \
+set-cluster ekl-k8s
 ```
 
 #### step 4.1 add cluster details
@@ -95,7 +84,8 @@ tr -d "\n" | base64 -d > ~/Han/workspace-k8s/cert/cert-ca/cert-ca.crt
 
 2. set cluster details
 ```
-kubectl config --kubeconfig=/Users/yiyuma/.kube/ekl-k8s-dev-edit/config set-cluster ekl-k8s-dev \
+kubectl config --kubeconfig=/Users/yiyuma/.kube/ekl-k8s-dev-edit/config \
+set-cluster ekl-k8s-dev \
 --server=https://ekl-k8s-master-1.ponyworld.io:6443 \
 --certificate-authority=/Users/yiyuma/Han/workspace-k8s/cert/cert-ca/cert-ca.crt \
 --embed-certs
@@ -114,18 +104,19 @@ kubectl config --kubeconfig=config set-credentials qiao-han \
 
 #### step 4.3 add context details
 ```
-kubectl config --kubeconfig=/Users/yiyuma/.kube/ekl-k8s-dev-edit/config \
-set-context ekl-k8s-dev-edit --cluster=ekl-k8s-dev --namespace=ekl-k8s-dev \
+kubectl config --kubeconfig=/Users/yiyuma/.kube/ekl-dev-qiao/config \
+set-context ekl-dev-qiao --cluster=ekl-k8s-dev --namespace=ekl-dev \
 --user=qiao-han
 ```
 
 #### step 4.4 set current context
 ```
-kubectl config --kubeconfig=/Users/yiyuman/.kube/ekl-k8s-dev-edit/config use-context ekl-k8s-dev-edit
+kubectl config --kubeconfig=/Users/yiyuman/.kube/ekl-dev-qiao/config \
+use-context ekl-dev-qiao
 ```
 
 ### step 5 set KUBECONFIG
 add following command to ~/.zprofile (MacOS) or ~/.bashrc (Ubuntu)
 ```
-export KUBECONFIG=~/.kube/ekl-k8s-dev-edit/config
+export KUBECONFIG=~/.kube/ekl-dev-qiao/config
 ```

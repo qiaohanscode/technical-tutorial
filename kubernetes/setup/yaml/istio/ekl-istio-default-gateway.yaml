@@ -1,8 +1,8 @@
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: ekl-k8s-gateway
-  namespace: istio-system
+  name: ekl-istio-default-gateway
+  namespace: ekl-istio-system
 spec:
   selector:
     istio: ingressgateway

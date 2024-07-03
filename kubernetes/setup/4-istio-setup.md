@@ -49,7 +49,7 @@ verify a successful installation
 
 ### Create Istio Gateway
 ```
-kubectl apply -f ekl-k8s-gateway.yaml
+kubectl apply -f ekl-istio-default-gateway.yaml
 ```
 
 ### Install Kiali
@@ -58,7 +58,7 @@ kubectl apply -f ekl-k8s-gateway.yaml
 kubectl apply -f $ISTIO_DIR/samples/addon/kiali.yaml
 
 //create virtualservice 
-kubectl apply -f ekl-k8s-virtual-service-kiali.yaml
+kubectl apply -f ekl-istio-system-virtualservice-kiali.yaml
 
 //get IP address of service (type LoadBalancer) istio-ingressgateway
 kubectl -n istio-system get svc

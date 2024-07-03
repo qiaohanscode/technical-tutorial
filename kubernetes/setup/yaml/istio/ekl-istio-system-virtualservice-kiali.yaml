@@ -1,13 +1,13 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: ekl-k8s-virtual-service-kiali
-  namespace: istio-system
+  name: ekl-istio-system-virtualservice-kiali
+  namespace: ekl-istio-system
 spec:
   hosts:
     - kiali.ponyworld.io
   gateways:
-    - ekl-k8s-gateway
+    - ekl-istio-system/ekl-istio-default-gateway
   http:
     - route:
         - destination:

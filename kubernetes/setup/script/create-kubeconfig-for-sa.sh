@@ -1,16 +1,16 @@
-SERVICE_ACCOUNT=jenkins-ekl-k8s-dev
+SERVICE_ACCOUNT=ekl-dev-jenkins
 
-NAMESPACE=ekl-k8s-dev
+NAMESPACE=ekl-dev
 
 CONTEXT=$(kubectl config current-context)
 
-NEW_CONTEXT=jenkins-ekl-k8s-dev
+NEW_CONTEXT=ekl-dev-jenkins
 
-KUBECONFIG_SA_FOLDER=jenkins-ekl-k8s-dev
+KUBECONFIG_SA_FOLDER=ekl-dev-jenkins
 
 KUBECONFIG_SA=${KUBECONFIG_SA_FOLDER}/config
 
-SECRET_NAME=token-jenkins-ekl-k8s-dev
+SECRET_NAME=token-ekl-dev-jenkins
 
 TOKEN_DATA=$(kubectl get secret ${SECRET_NAME} \
 --namespace ${NAMESPACE} \

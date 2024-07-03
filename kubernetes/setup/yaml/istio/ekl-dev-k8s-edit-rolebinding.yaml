@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ekl-dev-k8s-edit
+  namespace: ekl-dev
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: edit
+subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: ekl-k8s-dev-edit
+  - kind: ServiceAccount
+    name: ekl-dev-jenkins
+    namespace: ekl-dev
