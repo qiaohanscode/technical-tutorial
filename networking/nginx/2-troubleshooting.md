@@ -5,6 +5,7 @@ docker exec nginx-base nginx -s reload
 ```
 
 ### Appendix
+[Using Nginx Docker Image](https://octopus.com/blog/using-nginx-docker-image)
 
 [Comprehensive Guide For Configuring Nginx](https://dev.to/ritwikmath/nginx-reverse-proxy-in-localhost-and-docker-a-comprehensive-setup-guide-3d1o)
 
