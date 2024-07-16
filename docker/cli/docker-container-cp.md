@@ -15,3 +15,8 @@ Example:
 ```
 docker cp ekl-frontend-dev:/etc/nginx/conf.d/default.conf ~/temp/1/default.conf
 ```
+
+
+```
+docker cp ~/temp/1/default.conf ekl-frontend-dev:/etc/nginx/conf.d/default.conf
+```
