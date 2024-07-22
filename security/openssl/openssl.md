@@ -29,8 +29,12 @@ openssl req -x509 -new -key rootCA.key -days 1024 -out ponyworld-rootCA.crt
 - -out -- output file (default stdout)
 #### generate a private key and a self-signed CA certificate in one command
 ```
-openssl req -x509 -days 1825 -newkey rsa:2048 -keyout ponyworld-root-ca-privkey.pem -config ponyworld-root-ca.conf -out ponyworld-root-ca.crt
+openssl req -x509 -days 1825 -newkey rsa:2048 \
+-keyout ponyworld-root-ca-privkey.pem \
+-config ponyworld-root-ca.conf \
+-out ponyworld-root-ca.crt
 ```
+`Note: with option -noenc, the private key will not be encrypted`
 #### view the generated CA certificate
 ```
 openssl x509 -in ponyword-rootCA.crt -text -noout

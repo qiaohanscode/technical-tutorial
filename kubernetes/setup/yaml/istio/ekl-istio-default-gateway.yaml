@@ -20,6 +20,6 @@ spec:
         protocol: HTTPS
       tls:
         mode: SIMPLE
-        credentialName: ekl-istio-cert # k8s secret with x509 cert, must be in namespace istio-system
+        credentialName: ekl-istio-cert-chain # k8s secret with x509 cert chain, must be in namespace istio-system
       hosts:
         - '*'
