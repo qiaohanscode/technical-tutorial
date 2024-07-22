@@ -3,6 +3,8 @@
 openssl genrsa -des3 -out rootCA.key 2048
 ```
 - -des3 -- encrypt the generated key with DES in EDE CBC mode
+
+`Note: without option -des3, a private key without passphrase will be created `
 #### generates a public key for the given private key. This step is not necessary for generating certificate.
 ```
 openssl pkey -in rootCA.key -pubout -out pubkeyRootCA.key

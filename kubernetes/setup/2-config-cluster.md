@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: ekl-k8s-dev
+  name: ekl-dev
 ```
 
 #### Step 2 Create X.509 Certificate 
