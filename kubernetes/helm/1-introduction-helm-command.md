@@ -11,52 +11,31 @@
 - A `Release` is an instance of a chart running in a kubernetes cluster. One chart can be installed many times into the same cluster. Each time it is installed, a new `release` is created and each `release` has its own release name.
 
 ### Finding Charts `helm search`
+
+search the Artifact Hub, which lists helm charts from dozens of different repositories.
 ```
-# search the Artifact Hub, which lists helm charts from dozens of different repositories.
 helm search hub k8s-dashboard -o yaml
+```
 
-# without filter, shows all the available charts
+without filter, shows all the available charts
+```
 helm search hub
+```
 
-# search the repositories hat have been added to the local helm client (with
-# helm repo add). The search is done over local data, and no public network
-# connection is needed. Find the names of the charts in repositories you have
-# already added.
+search the repositories hat have been added to the local helm client (with
+helm repo add). The search is done over local data, and no public network
+connection is needed. Find the names of the charts in repositories you have
+already added.
+```
+helm repo update  # Make sure we get the latest list of charts
 helm search repo dashboard 
 ```
 
-### Heml Feature 2 -- Templating Engine
-- define own chart with `{{.values}}`
-  Helm Chart Structure
+### List Local Repositories
+list installed chart repositories.
 ```
-mychart/
-  Chart.yaml
-  values.yaml
-  charts/
-  templates/
-  ....
- 
- helm install <chartname>
- 
- optionally README 
- 
- #values.yaml, default
- imageName: myapp
- port: 8080
- version : 1.0.0
- 
- 
-# my-values.yaml, override values
-version: 2.0.0
-
-helm install --values=my-values.yaml <chartname>
-or
-helm install --set version=2.0.0
+helm repo list
 ```
-
-### Helm Feature 3 -- Release Management
-- Helm 2, Helm Client (CLI) and Helm Server (TIller).
-- Helm 3, only Helm Client (CLI), because Tiller has been removed due to security concerns
 
 ### Customizing the Chart Before Installing
 To see what options are configurable on a chart, use the following command
@@ -170,4 +149,8 @@ Uninstall a release
 helm uninstall k8s-dashboard
 ```
 
+### Helm Feature 3 -- Release Management
+- Helm 2, Helm Client (CLI) and Helm Server (TIller).
+- Helm 3, only Helm Client (CLI), because Tiller has been removed due to security concerns
+- 
 ### Creating your own chart

@@ -72,6 +72,7 @@ AmbientCapabilities=CAP_NET_BIND_SERVICE
 Environment="JENKINS_PORT=-1"                                                     
 Environment="JENKINS_HTTPS_LISTEN_ADDRESS=0.0.0.0"
 ```
+'Note: ' actually items in override.conf is not necessary. Https works well without override.conf
 
 #### Step 10 Restart Jenkins
 ```
