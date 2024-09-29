@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: ekl-grafana-dev
+  namespace: ekl-grafana
+spec:
+  gateways:
+    - ekl-istio-system/ekl-istio-default-gateway
+  hosts:
+    - ekl-grafana-dev.ponyworld.io
+  http:
+    - route:
+        - destination:
+            host: ekl-grafana.ekl-grafana.svc.cluster.local
+            port:
+              number: 80
+      timeout: 60s
