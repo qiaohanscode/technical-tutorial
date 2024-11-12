@@ -38,11 +38,19 @@ Check the version
 psql --version
 ```
 
-#### Step 3 COnfigure PostgreSQL 17
-Edit configuration file `pg_hba.conf` 
+#### Step 3 Cnfigure PostgreSQL 17 For Remote Access
+Edit `ostgresql.conf` to allow remote connections by changing `listen_addresses to *:
 ```
-sudo vim /etc/postgresql/17/main/pg_hba.conf
+sudo vim /etc/postgresql/17/main/postgresql.conf
 listen_addresses = '*'
+```
+
+Configure PostgreSQL to use md5 password authentication by editing pg_hba.conf.
+This is important if you wish to connect remotely e.g. via PGADMIN
+```
+sudo sed -i '/^host/s/ident/md5/' /etc/postgresql/17/main/pg_hba.conf
+sudo sed -i '/^local/s/peer/trust/' /etc/postgresql/17/main/pg_hba.conf
+echo "host all all 0.0.0.0/0 md5" | sudo tee -a /etc/postgresql/17/main/pg_hba.conf
 ```
 
 Restart PostgreSQL
@@ -55,7 +63,7 @@ Allow PostgreSQL port through the firewall
 sudo ufw allow 5432/tcp
 ```
 
-#### Step 4 Connect to PostgreSQL
+#### Step 4 Create USER For Backend Application
 Connect as the postgres user:
 ```
 sudo -u postgres psql
@@ -69,4 +77,25 @@ ALTER USER postgres PASSWORD '$PASSWORD'
 Create the database ekl_dev
 ```
 CREATE DATABASE ekl_dev;
+```
+
+Create the user ekl_be_dev (role). The `LOGIN` keyword allows the role to
+log in to the database.
+```
+CREATE ROLE ekl_be_dev WITH LOGIN PASSWORD '$PASSWORD';
+```
+
+Grant privileges to the user
+```
+GRANT CONNECT ON DATABASE ekl_dev TO ekl_be_dev;
+```
+
+Make sure the user can create tables and schemas
+```
+GRANT CREATE ON DATABASE ekl_dev TO ekl_be_dev;
+```
+
+Reload or restart PostgreSQL
+```
+sudo systemctl reload postgresql
 ```
