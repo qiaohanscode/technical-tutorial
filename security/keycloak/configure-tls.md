@@ -19,3 +19,18 @@ https-certificate-key-file=${KC_HOME}/conf/server.key.pem
 ```
 bin/kc.sh start &
 ```
+
+#### Step 5 Configure hostname and hostname-admin
+```
+# URL for access keycloak backend
+hostname=https://oauth-dev.ponyworld.io:8443
+
+# URL for access keycloak Admin Console (frontend9
+hostname-admin=https://kc-admin-dev.ponyworld.io:8443
+```
+Details is available under [keycloak Configure hostname](https://www.keycloak.org/server/hostname).
+
+#### Step 6 Create Permanent Admin User
+Go to the Admin UI Console, create the user `kc-admin` for the realm master change
+the drop-down filter from "Filter by client" to "Filter by realm roles" and assign
+the role `admin` to this user.
