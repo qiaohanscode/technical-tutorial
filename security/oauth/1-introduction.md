@@ -53,4 +53,12 @@ Which actually ends up to this:
 
 <img src="images/oauth-current-final.png" width="400" alt="Final Current OAuth">
 
+#### OAuth 2.1
+The main goal with [OAuth 2.1](https://oauth.net/2.1/) is to capture the best practice in
+OAuth 2.0 and its extensions under a single name. OAuth 2.1 will not define any new
+behaviour, it also won't include anything considered experimental or still in progress.
+
+With OAuth 2.1, the Security Best Current Practice (BCP) is irrelevant, because OAuth 2.1
+only provide the secure option.
+
 
