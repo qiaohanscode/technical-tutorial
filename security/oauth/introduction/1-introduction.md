@@ -13,13 +13,13 @@ mechanism.
 
 ### OAuth 2.0 Landscape
 #### The OAuth core spec (RFC 6749) defines four grant types:
-<img src="images/rfc-6749.png" width="300" alt="RFC6749">
+<img src="../images/rfc-6749.png" width="300" alt="RFC6749">
 
 #### PKCE - Proof Key for Code Exchange (RFC 7636) 
 PKCE (pronounced pixie) is created to provide a way to use Authorization Code flow 
 without a client secret.
 
-<img src="images/rfc-7636.png" width="300" alt="RFC7636">
+<img src="../images/rfc-7636.png" width="300" alt="RFC7636">
 
 #### OAuth 2.0 for Native Apps (RFC 8252)
 A native app refers to a client application that is installed and executed directly on
@@ -30,13 +30,13 @@ system, such as:
 Native apps are distinct from web apps because they run outside a browser and often use
 platform-specific APIs.
 
-<img src="images/rfc-8252.png" width="300" alt="RFC8252">
+<img src="../images/rfc-8252.png" width="300" alt="RFC8252">
 
 #### Device Grant (RFC 8626)
 A new OAuth grant `Device Grant` was created to let a new class of devices to use OAuth,
 - Embedded devices: Smart TVs, game consoles, etc.
 
-<img src="images/rfc-8626.png" width="300" alt="RFC8626">
+<img src="../images/rfc-8626.png" width="300" alt="RFC8626">
 
 
 ### Best Practices
@@ -47,11 +47,11 @@ deprecated.
 
 Due to the modifications, OAuth looks current like this,
 
-<img src="images/oauth-current.png" width="400" alt="Current OAuth">
+<img src="../images/oauth-current.png" width="400" alt="Current OAuth">
 
 Which actually ends up to this:
 
-<img src="images/oauth-current-final.png" width="400" alt="Final Current OAuth">
+<img src="../images/oauth-current-final.png" width="400" alt="Final Current OAuth">
 
 #### OAuth 2.1
 The main goal with [OAuth 2.1](https://oauth.net/2.1/) is to capture the best practice in

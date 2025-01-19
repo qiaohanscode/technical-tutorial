@@ -36,3 +36,16 @@ drawn from the [OAuth 2.0 Security Best Current Practices](https://tools.ietf.or
 The authorization code grant is extended with the functionality from PKCE 
 ([RFC7636](https://tools.ietf.org/html/rfc7636)) such that the only method of using 
 authorization code grant requires the addition of the PKCE mechanism.
+
+#### OpenId Connect Playground
+[okta](https://www.okta.com/) provides an OpenId Connect Playground which is available under
+
+[okta](https://www.okta.com/) -> [Developers/Auth0 Marketplace](https://auth0.com/marketplace)
+-> [Developers/OIDC Connect Playground](https://openidconnect.net/?_gl=1*hdvqng*_gcl_aw*R0NMLjE3MzY3MDg4OTAuQ2p3S0NBaUE3WTI4QmhBbkVpd0FBZE9KVUdIYTJ3cFh6ek9mU2dhQWY4VXhCLTA1WGRIaXRrVHZEVXV6WXI1dzQ5YndCS0txS3JXVjB4b0M5Y3NRQXZEX0J3RQ..*_gcl_au*MTU0OTI0MDIyOC4xNzM2NjIyNjkx*_ga*MTQ1NzIwNTg1MS4xNzM2NjIyNjkx*_ga_QKMSDV5369*MTczNzIwODM3Ny40LjEuMTczNzIwODQwNi4zMS4wLjA.)
+
+okta also provides A [Handbook for OpenId Connect](https://auth0.com/resources/ebooks/the-openid-connect-handbook?utm_source=openidconnect&utm_medium=gc_banner&utm_campaign=oidc_gc_banner_12_2019).
+
+A downloaded version is available [here](../ebook/handbook_oidc_auth0.pdf)
+
+#### Appendix
+- The client may generate a random string and send it as query parameter `state`.
