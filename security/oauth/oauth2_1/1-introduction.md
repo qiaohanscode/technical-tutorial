@@ -37,6 +37,20 @@ The authorization code grant is extended with the functionality from PKCE
 ([RFC7636](https://tools.ietf.org/html/rfc7636)) such that the only method of using 
 authorization code grant requires the addition of the PKCE mechanism.
 
+#### Refresh Token
+OAuth 2.1 provides two options for refresh tokens,
+- one-time use
+- tied to the sender with a cryptographic binding
+
+One time use means that after a refresh token is used to retrieve an access token, it
+becomes invalid. The OAuth server can send a new refresh token along with the requested
+access token. A post [using the Authorization Code grant](https://fusionauth.io/articles/login-authentication-workflows/spa/oauth-authorization-code-grant-jwts-refresh-tokens-cookies)
+describes how to secure refresh tokens.
+
+The other recommended option is to ensure the OAuth server cryptographically binds the 
+refresh token to the client. You can read the documents [OAuth token binding](https://www.ietf.org/archive/id/draft-ietf-oauth-token-binding-08.txt) 
+or Mutual TLS authentication [RFC 8705](https://tools.ietf.org/html/rfc8705).
+
 #### OpenId Connect Playground
 [okta](https://www.okta.com/) provides an OpenId Connect Playground which is available under
 
