@@ -3,11 +3,13 @@
 #### Install NVM
 ```
 # Download and run script
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
 # source zsh runtime
 source ~/.zshrc
 ```
+
+`Note:` installation with homebrew doesn't work well.
 
 #### List Avaiable Node.js LTS
 ```
