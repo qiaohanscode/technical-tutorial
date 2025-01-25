@@ -4,7 +4,12 @@
 - resize left 5 rows -- `Ctrl`+`B` -> `Shift`+`:` -> resize-p -L 5
 - resize right 5 rows -- `Ctrl`+`B` -> `Shift`+`:` -> resize-p -R 5
 
-
+#### Navigate
+```
+ctrl + b -> [ 
+# Go to line in the output
+shift + g -> line number
+```
 
 ### Appendix
 
