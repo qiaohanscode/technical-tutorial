@@ -57,3 +57,13 @@ find out if the scope @allianz has special registry
 ```
 npm config get @allianz:registry
 ```
+
+set registry for the scope @allianz
+```
+npm config set @allianz:registry "https://nexus-frontend.frameworks.allianz.io/repository/npm-public/"
+```
+login to the neux repository - after successful authentication an authentication token will be saved in ~/.npmrc.
+```
+npm config set @allianz:registry "https://nexus-frontend.frameworks.allianz.io/repository/npm-public/"
+```
+
