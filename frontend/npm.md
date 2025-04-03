@@ -47,3 +47,8 @@ update npm to 9.8.0
 ```
 npm install -g npm@9.8.0
 ```
+
+show where the global librarys have been installed 
+```
+npm root -g
+```
