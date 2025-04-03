@@ -26,7 +26,7 @@ npm list
 
 list version of the given packages
 ```
-npm list @aposin/ng-aquila
+npm list @angular/core
 ```
 
 list currently installed package in global path
