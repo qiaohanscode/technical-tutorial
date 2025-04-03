@@ -24,6 +24,11 @@ list currently installed packages in prefix path
 npm list
 ```
 
+list version of the given packages
+```
+npm list @aposin/ng-aquila
+```
+
 list currently installed package in global path
 ```
 npm list -g
