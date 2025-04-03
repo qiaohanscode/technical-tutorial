@@ -52,3 +52,8 @@ show where the global librarys have been installed
 ```
 npm root -g
 ```
+
+find out if the scope @allianz has special registry
+```
+npm config get @allianz:registry
+```
